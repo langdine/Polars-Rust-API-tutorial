@@ -1,0 +1,1995 @@
+<!DOCTYPE HTML>
+<html lang="zh_CN" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title></title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/index.html"><strong aria-hidden="true">1.</strong> 首页</a></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/main.html"><strong aria-hidden="true">2.</strong> 中文版</a></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/编译feature设置.html"><strong aria-hidden="true">3.</strong> 编译feature设置</a></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/基本概念.html"><strong aria-hidden="true">4.</strong> 基本概念</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/基本概念-索引.html"><strong aria-hidden="true">4.1.</strong> 索引</a></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/基本概念-上下文.html"><strong aria-hidden="true">4.2.</strong> 表达式和上下文</a></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/基本概念-数据类型.html"><strong aria-hidden="true">4.3.</strong> 数据类型</a></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/基本概念-数据类型转换.html"><strong aria-hidden="true">4.4.</strong> 数据类型转换</a></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/基本概念-Categorical分类变量.html"><strong aria-hidden="true">4.5.</strong> Categorical分类变量</a></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/基本概念-Null和None和NaN.html"><strong aria-hidden="true">4.6.</strong> Null和None和NaN</a></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/基本概念-缺失数据的处理.html"><strong aria-hidden="true">4.7.</strong> 缺失数据的处理</a></li></ol></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/数据操作.html"><strong aria-hidden="true">5.</strong> 数据操作</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/示例数据.html"><strong aria-hidden="true">5.1.</strong> 示例数据</a></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/IO.html"><strong aria-hidden="true">5.2.</strong> IO</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/IO-从CSV构建Dataframe.html"><strong aria-hidden="true">5.2.1.</strong> 从CSV构建Dataframe</a></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/IO-从CSV创建lazyframe.html"><strong aria-hidden="true">5.2.2.</strong> 从CSV创建lazyframe</a></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/IO-Schema.html"><strong aria-hidden="true">5.2.3.</strong> Schema</a></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/IO-写入CSV文件.html"><strong aria-hidden="true">5.2.4.</strong> 写入CSV文件</a></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/IO-从parquet格式构建Dataframe.html"><strong aria-hidden="true">5.2.5.</strong> 从parquet格式构建Dataframe</a></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/IO-从parquet格式构建lazyframe.html"><strong aria-hidden="true">5.2.6.</strong> 从parquet格式构建lazyframe</a></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/IO-写入parquet格式.html"><strong aria-hidden="true">5.2.7.</strong> 写入parquet格式</a></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/IO-从Json创建Dataframe.html"><strong aria-hidden="true">5.2.8.</strong> 从Json创建Dataframe</a></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/IO-从Json创建LazyFrame.html"><strong aria-hidden="true">5.2.9.</strong> 从Json创建LazyFrame</a></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/IO-写入Json.html"><strong aria-hidden="true">5.2.10.</strong> 写入Json</a></li></ol></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/Series.html"><strong aria-hidden="true">5.3.</strong> Series</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/Series-构造Series.html"><strong aria-hidden="true">5.3.1.</strong> 构造Series</a></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/Series-索引Series.html"><strong aria-hidden="true">5.3.2.</strong> 索引Series</a></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/Series-读取单个元素.html"><strong aria-hidden="true">5.3.3.</strong> 读取单个元素</a></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/Series-遍历值.html"><strong aria-hidden="true">5.3.4.</strong> 遍历值</a></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/Series-算数运算.html"><strong aria-hidden="true">5.3.5.</strong> 算数运算</a></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/Series-Series常用API.html"><strong aria-hidden="true">5.3.6.</strong> Series常用API</a></li></ol></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/Dataframe.html"><strong aria-hidden="true">5.4.</strong> Dataframe</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/Dataframe-构造Dataframe.html"><strong aria-hidden="true">5.4.1.</strong> 构造Dataframe</a></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/Dataframe-索引Dataframe.html"><strong aria-hidden="true">5.4.2.</strong> 索引Dataframe</a></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/Dataframe-分组和简单聚合.html"><strong aria-hidden="true">5.4.3.</strong> 分组和简单聚合</a></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/Dataframe-复杂聚合和自定义函数.html"><strong aria-hidden="true">5.4.4.</strong> 复杂聚合和自定义函数</a></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/Dataframe-Join操作.html"><strong aria-hidden="true">5.4.5.</strong> Join操作</a></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/Dataframe-数据透视Pivots.html"><strong aria-hidden="true">5.4.6.</strong> 数据透视Pivots</a></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/Dataframe-DataframeAPI.html"><strong aria-hidden="true">5.4.7.</strong> Dataframe API</a></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/Dataframe-行迭代.html"><strong aria-hidden="true">5.4.8.</strong> 行迭代</a></li></ol></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/Lazyframe操作.html"><strong aria-hidden="true">5.5.</strong> Lazyframe操作</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/Lazyframe操作-构造Lazyframe.html"><strong aria-hidden="true">5.5.1.</strong> 构造Lazyframe</a></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/Lazyframe操作-索引LazyFrame.html"><strong aria-hidden="true">5.5.2.</strong> 索引LazyFrame</a></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/Lazyframe操作-表达式.html"><strong aria-hidden="true">5.5.3.</strong> 表达式</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/表达式-表达式上下文.html"><strong aria-hidden="true">5.5.3.1.</strong> 表达式上下文</a></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/表达式-基本运算.html"><strong aria-hidden="true">5.5.3.2.</strong> 基本运算</a></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/表达式-列选择.html"><strong aria-hidden="true">5.5.3.3.</strong> 列选择</a></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/表达式-重命名alias.html"><strong aria-hidden="true">5.5.3.4.</strong> 字段重命名</a></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/表达式-条件运算-when.html"><strong aria-hidden="true">5.5.3.5.</strong> 条件运算 when then otherwise</a></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/表达式-表达式方法.html"><strong aria-hidden="true">5.5.3.6.</strong> 表达式方法</a></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/表达式-字符串操作.html"><strong aria-hidden="true">5.5.3.7.</strong> 字符串操作</a></li></ol></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/Lazyframe操作-分组和聚合.html"><strong aria-hidden="true">5.5.4.</strong> Lazyframe分组和聚合</a></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/Lazyframe操作-Lazyframe-API.html"><strong aria-hidden="true">5.5.5.</strong> Lazyframe API</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/代码参考.html"><strong aria-hidden="true">6.</strong> 代码参考</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/代码参考-agg_groups示例.html"><strong aria-hidden="true">6.1.</strong> agg_groups示例</a></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/代码参考-map示例.html"><strong aria-hidden="true">6.2.</strong> map示例</a></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/zh_cn/代码参考-over示例.html"><strong aria-hidden="true">6.3.</strong> over示例</a></li></ol></li><li class="chapter-item expanded "><a href="Rust-Polars-API-tutorial/en/main.html"><strong aria-hidden="true">7.</strong> English</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="polars-rust-api-tutorial"><a class="header" href="#polars-rust-api-tutorial">Polars Rust API tutorial</a></h1>
+<p>For Polars 0.43.1
+作者：张德龙 zdlldine@gmail.com</p>
+<p>本项目为学习Polars Rust API时所做的笔记。整理成book，供大家学习。</p>
+<p>This project is a collection of notes taken while learning the Polars Rust API. It is organized into a book for your study.</p>
+<ul>
+<li><a href="Rust-Polars-API-tutorial/./zh_cn/main.html">中文版 100%</a></li>
+<li><a href="Rust-Polars-API-tutorial/./en/main.html">English 0%</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="polars-rust-api-教程"><a class="header" href="#polars-rust-api-教程">Polars Rust API 教程</a></h1>
+<p>For Polars 0.43.1</p>
+<p>作者：张德龙 <a href="mailto:Rust-Polars-API-tutorial/zh_cn/zdlldine@gmail.com">zdlldine@gmail.com</a></p>
+<p>2024-10-4</p>
+<p>本项目为学习Polars Rust API时所做的笔记。整理成book，供大家学习。
+为什么使用Polars Rust API？
+为了让你的Rust程序自身具备高性能的数据处理能力。而不需要给你的程序嵌入Python环境。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="编译feature设置"><a class="header" href="#编译feature设置">编译feature设置</a></h1>
+<pre><code class="language-toml">#cargo.toml推荐依赖，Polars支持更多的特性，会导致编译速度减慢。
+[dependencies]
+polars = {version="0.43.0",features=["mode","find_many","polars-io","csv","polars-ops","lazy","docs-selection","streaming","regex","temporal","is_unique","is_between","dtype-date","dtype-datetime","dtype-time","dtype-duration","dtype-categorical","rows","is_in","pivot"]}
+polars-io = "0.43.0"
+polars-lazy = "0.43.0"
+</code></pre>
+<p>完整的编译特性列表：https://docs.rs/crate/polars/latest/features</p>
+<div class="table-wrapper"><table><thead><tr><th>常用特性</th><th>含义</th></tr></thead><tbody>
+<tr><td>lazy</td><td>启用lazy API</td></tr>
+<tr><td>regex</td><td>在col()表达式中支持正则</td></tr>
+<tr><td>sql</td><td>支持SQL查询</td></tr>
+<tr><td>streaming</td><td>启用数据流，这支持处理数据量大于内存。</td></tr>
+<tr><td>random</td><td>生成随机采样的array。</td></tr>
+<tr><td>timezones</td><td>时区支持</td></tr>
+<tr><td>strings</td><td>字符串提取工具</td></tr>
+<tr><td>object</td><td>支持任意数据类型ObjectChunked<T>，它利用Any trait处理不同类型。</td></tr>
+<tr><td>json</td><td>支持json的序列化和反序列化</td></tr>
+<tr><td>serde</td><td>支持serde库序列化和反序列化</td></tr>
+<tr><td>serde-lazy</td><td>支持serde库序列化和反序列化</td></tr>
+<tr><td>sort_multiple</td><td>支持多列排序</td></tr>
+<tr><td>rows</td><td>从行中创建 DataFrame 并从 DataFrame 中提取行。激活数据透视和转置操作。</td></tr>
+<tr><td>这句话的意思是</td><td></td></tr>
+<tr><td>asof_join</td><td>支持ASOF连接<sup class="footnote-reference"><a href="#asof_join">1</a></sup>操作。</td></tr>
+<tr><td>cross_join</td><td>创建两个DataFrame的笛卡尔积<sup class="footnote-reference"><a href="#cross_join">2</a></sup> 。</td></tr>
+<tr><td>is_in</td><td>判断值是否在Series中</td></tr>
+<tr><td>is_between</td><td>判断是否在上下限之间。</td></tr>
+<tr><td>zip_with</td><td>将两个Series进行Zip运算。</td></tr>
+<tr><td>arg_where</td><td>返回满足条件的索引</td></tr>
+<tr><td>unique_counts</td><td>支持唯一值计数</td></tr>
+<tr><td>rank</td><td>计算秩</td></tr>
+<tr><td>interpolate</td><td>对Series的缺失值进行插值</td></tr>
+</tbody></table>
+</div>
+<hr />
+<div class="footnote-definition" id="asof_join"><sup class="footnote-definition-label">1</sup>
+<p>在数据处理中，"连接"是指将两个或更多的数据集根据一些共享的键（key）或列合并在一起。通常，这种连接要求键的值必须完全匹配。然而，ASOF连接是一种特殊的连接方式，它不要求键的值完全匹配，而是允许根据最接近的键进行连接。这在处理时间序列数据时特别有用，因为你可能想要将数据连接到最接近的时间点，而不是精确匹配的时间点。例如，如果你有一份包含股票价格的数据，每行数据都有一个时间戳，你可能想要将这份数据与另一份包含经济指标的数据进行连接，这份数据也有时间戳，但时间戳可能并不完全匹配。</p>
+</div>
+<div class="footnote-definition" id="cross_join"><sup class="footnote-definition-label">2</sup>
+<p>数据处理中，"笛卡尔积"是指两个数据集的所有可能的组合。例如，如果你有两个DataFrame，一个包含A、B两行，另一个包含1、2两行，那么这两个DataFrame的笛卡尔积将包含四行：(A, 1)，(A, 2)，(B, 1)，(B, 2)。</p>
+</div>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="基本概念"><a class="header" href="#基本概念">基本概念</a></h1>
+<p>Polars是由Rust写成的数据分析库。Polars主要依赖以下数据结构： Series, and ChunkedArray&lt;T&gt;, DataFrame和lazyframe。</p>
+<p>DataFrame 是一个由 Series 组成的二维数据结构，可以理解为数据表，由行和列构成（列，在数据科学中称为”字段”）。可以在 DataFrame 上执行的操作与在 SQL 中进行的查询非常相似。你可以 GROUP ，JOIN，PIVOT<sup class="footnote-reference"><a href="#pivot">1</a></sup>等。
+Dataframe可以被视为 Vec&lt;Series&gt; 的抽象，每一列对应一个Series。Series仅仅持有Arc&lt;dyn SeriesTrait&gt;。而ChunkedArray&lt;T&gt;类型实现SeriesTrait。Series 是 Polars 的隐匿类型的列数据表示。一些与数据类型无关的操作由Series、SeriesTrait提供，比如索引、重命名操作。与数据类型有关的操作必须向下转型到 Series的底层数据结构——ChunkedArray&lt;T&gt;，参见&lt;&lt;索引单个元素Page.2&gt;&gt;。
+ChunkedArray&lt;T&gt;，是分块后的数组，底层类似于Vec&lt;dyn ArrowArray&gt;，分块有利于数据的并行运算。这是Polars 的底层数据结构，并实现了许多操作。大多数操作是由在 chunked_array::ops 中定义或在 ChunkedArray 结构上实现的。</p>
+<div class="footnote-definition" id="pivot"><sup class="footnote-definition-label">1</sup>
+<p>在数据处理中，"pivot"指的是数据透视。用于长格式的数据转换为宽格式的数据。</p>
+</div>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="索引"><a class="header" href="#索引">索引</a></h1>
+<p>用于查询Series或Dataframe或lazyframe的元素或子集。
+polars中索引方式主要有4种：</p>
+<div class="table-wrapper"><table><thead><tr><th>类型</th><th>API</th><th>含义</th></tr></thead><tbody>
+<tr><td>Series某个元素</td><td>get方法</td><td>获取单个元素</td></tr>
+<tr><td>整数索引值</td><td>take方法</td><td>给定若干整数索引值，返回行或列的Series/Dataframe/lazyframe子集</td></tr>
+<tr><td>名称索引</td><td>select、column方法</td><td>给定列名，返回Dataframe/lazyframe子集。</td></tr>
+<tr><td>切片索引</td><td>slice方法</td><td>给定一个切片，返回切片范围内的子集；</td></tr>
+<tr><td>bool索引</td><td>filter方法</td><td>给定一个bool数组作为索引，必须和容器元素数量一致，返回true对应的元素子集。</td></tr>
+</tbody></table>
+</div>
+<p>API也根据以上4种设计。具体使用方式可查看 待补充</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="表达式"><a class="header" href="#表达式">表达式</a></h1>
+<p>Polars 拥有一个强大的概念，称为表达式(Expr类型)。 Polars 表达式可以在各种上下文中使用，本质上是执行的是Fn(Series) -&gt; Series。Expr将 Series 作为输入并将 Series 作为输出。因此Expr可以链式调用。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>col("foo").sort().head(2)
+<span class="boring">}</span></code></pre></pre>
+<p>上述片段表示选择列 "foo" ，然后对此列进行排序，然后取排序输出的前两个值。表达式的强大之处在于每个表达式都会产生一个新的表达式，而且它们可以链式调用或保存入变量或作为参数传递。您可以通过polars 的执行上下文来运行表达式。在这里，我们在select上下文中运行两个表达式：</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>df.lazy()
+  .select([
+  col("foo").sort(Default::default()).head(None),
+  col("bar").filter(col("foo").eq(lit(1))).sum(),
+])
+.collect()?;
+<span class="boring">}</span></code></pre></pre>
+<p>每个独立的Polars表达式都可以在不需要任何其他表达式的结果或者不需要与其他表达式进行交互的情况下独立运行。因此，Polars可能会把表达式分配到不同的线程或者处理器上同时执行。
+Polars表达式是高度并行的。理解Polars表达式是学习Polars的关键步骤。</p>
+<h1 id="上下文"><a class="header" href="#上下文">上下文</a></h1>
+<p>能接受表达式的函数被称作上下文，包括以下三种：</p>
+<div class="table-wrapper"><table><thead><tr><th>含义</th><th>代码</th></tr></thead><tbody>
+<tr><td>选择</td><td>df.select([..])</td></tr>
+<tr><td>分组聚合</td><td>df.groupby(..).agg([..])</td></tr>
+<tr><td>横向堆叠(hstack) 或者增加列</td><td>df.with_columns([..])</td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="数据类型"><a class="header" href="#数据类型">数据类型</a></h1>
+<p>Polars内部使用Arrow数据类型。Arrow数据类型是Apache
+Arrow项目中的一部分，它定义了一种跨平台的、语言无关的数据格式。这种数据格式可以在不同的系统和语言之间进行高效的数据交换，而无需进行数据序列化和反序列化。Arrow datatypes包括了许多常见的数据类型，如整数、浮点数、字符串、日期和时间等。还支持复杂数据结构String,Categorical, and Object。方法</p>
+<div class="table-wrapper"><table><thead><tr><th><div style="width:100px">组</div></th><th><div style="width:100px">类型</div></th><th>备注</th></tr></thead><tbody>
+<tr><td>数字类型</td><td>Int8</td><td>8-bit signed integer.</td></tr>
+<tr><td>数字类型</td><td>Int16</td><td>16-bit signed integer.</td></tr>
+<tr><td>数字类型</td><td>Int32</td><td>32-bit signed integer.</td></tr>
+<tr><td>数字类型</td><td>Int64</td><td>64-bit signed integer.</td></tr>
+<tr><td>数字类型</td><td>UInt8</td><td>8-bit unsigned integer.</td></tr>
+<tr><td>数字类型</td><td>UInt16</td><td>16-bit unsigned integer.</td></tr>
+<tr><td>数字类型</td><td>UInt32</td><td>32-bit unsigned integer.</td></tr>
+<tr><td>数字类型</td><td>UInt64</td><td>64-bit unsigned integer.</td></tr>
+<tr><td>数字类型</td><td>Float32</td><td>32-bit floating point.</td></tr>
+<tr><td>数字类型</td><td>Float64</td><td>64-bit floating point.</td></tr>
+<tr><td>嵌套类型</td><td>Struct</td><td>一个Struct类型类似于 Vec&lt;Series&gt;可以用于将多列数据封装在一列中.</td></tr>
+<tr><td>嵌类型</td><td>List</td><td>List类型底层是Arrow LargeList类型.</td></tr>
+<tr><td>时间类型</td><td>Date</td><td>日期类型，底层用i32类型储存自1970年1月1日00:00:00 UTC<sup class="footnote-reference"><a href="#UNIXepoch">1</a></sup> 开始的天数。日期范围大约是从公元前5877641年到公元5877641年。</td></tr>
+<tr><td>时间类型</td><td>Datetime(TimeUnit, Option&lt;PlSmallStr&gt;)</td><td>日期时间类型。第一个参数为单位，第二个参数为时区。通常定义为Datetime(TimeUnit::Milliseconds,None)；底层用i64类型储存自1970年1月1日00:00:00 UTC 的毫秒。时间范围大约是从约公元前292,469,238年到公元后292,473,178年。在实际应用中，使用i64类型来存储毫秒级的时间戳是完全足够的。</td></tr>
+<tr><td>时间类型</td><td>Duration(TimeUnit)</td><td>储存时间差. Duration(TimeUnit::Milliseconds) 是Date/Datetime减法运算的返回类型。</td></tr>
+<tr><td>时间类型</td><td>Time</td><td>时间类型，内部储存了自一天0点开始的纳秒。</td></tr>
+<tr><td>其他</td><td>Boolean</td><td>布尔值，内部用bit存储。</td></tr>
+<tr><td>其他</td><td>String</td><td>字符串类型，底层是LargeUtf8</td></tr>
+<tr><td>其他</td><td>Binary</td><td>任意二进制数据.</td></tr>
+<tr><td>其他</td><td>Object</td><td>A limited supported data type that can be any value.</td></tr>
+<tr><td>其他</td><td>Categorical</td><td>分类变量。类似于R语言的因子化（factor）。crate feature dtype-categorical only</td></tr>
+</tbody></table>
+</div>
+<p>详细Arrow类型说明，参见：<a href="https://arrow.apache.org/docs/format/Columnar.html">https://arrow.apache.org/docs/format/Columnar.html</a></p>
+<div class="footnote-definition" id="UNIXepoch"><sup class="footnote-definition-label">1</sup>
+<p>这一天（1970年1月1日00:00:00 UTC）被称作UNIX元年（UNIX  epoch）</p>
+</div>
+<p>Float32和Float64遵守IEEE 754标准，但有以下需要注意：</p>
+<p>Polars要求**操作不能依赖于0或 NaN的正负性，也不能保证NaN
+值的有效载荷。**这不仅限于算术运算。排序和分组操作前会将所有零规范化为+0，将所有NaN规范化为没有有效载荷的正NaN，以进行有效的等式检查：<strong>NaN和NaN比较被认为相等。NaN比所有非NaN大。</strong></p>
+<p>在IEEE
+754浮点数标准中，0和NaN（非数字）是有符号的，这意味着存在+0和-0，正NaN和负NaN。正零和负零在数值上是相等的，但是在某些计算中，如除法或者函数的极限，正零和负零可能会有不同的行为。在IEEE浮点数标准中，NaN（非数字）的二进制表示，有一个"有效载荷"（payload）部分。他指的是除符号位和指数位之外的部分。这个部分可以存储额外的信息。例如，如果一个数学运算的结果是未定义的，那么可以在NaN的有效载荷中存储这个信息。然而，大多数情况下，这个有效载荷并没有被使用，所以在许多操作中，对NaN的有效载荷的处理并没有明确的规定。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="数据类型转换"><a class="header" href="#数据类型转换">数据类型转换</a></h1>
+<h2 id="series底层类型转换"><a class="header" href="#series底层类型转换">Series底层类型转换</a></h2>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>Series::cast(&amp;self, dtype: &amp;DataType) -&gt; Result&lt;Series, PolarsError&gt;
+<span class="boring">}</span></code></pre></pre>
+<h2 id="表达式执行类型转换"><a class="header" href="#表达式执行类型转换">表达式执行类型转换</a></h2>
+<h3 id="数值类型相互转换"><a class="header" href="#数值类型相互转换">数值类型相互转换</a></h3>
+<p>不同容量的数值类型相互转换可能会遇到溢出问题。默认会抛出错误。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>col("integers").cast(DataType::Boolean).alias("i2bool")//数值 to bool，0值为flase，非零为true
+col("floats").cast(DataType::Boolean).alias("f2bool")//数值 tobool，0值为flase，非零为true。允许bool和数值的互相转换。但不允许从字符串转型为bool。
+<span class="boring">}</span></code></pre></pre>
+<h3 id="字符串转换为值"><a class="header" href="#字符串转换为值">字符串转换为值</a></h3>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>col("floats_as_string").cast(DataType::Float64)
+//通过转型运算将字符串转换为数值，如果出现非数字，会抛出运行时错误。
+<span class="boring">}</span></code></pre></pre>
+<h3 id="值转换为字符串"><a class="header" href="#值转换为字符串">值转换为字符串</a></h3>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>col("integers").cast(DataType::String)
+col("float").cast(DataType::String)
+<span class="boring">}</span></code></pre></pre>
+<h3 id="字符串解析为日期时间"><a class="header" href="#字符串解析为日期时间">字符串解析为日期时间</a></h3>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let mut opt = StrptimeOptions::default();
+opt.format=Some("%Y-%m-%d %H:%M:%S".to_owned());//默认值为None，polars默认可以识别标准日期时间形如："2024-09-20 00:44:00+08:00"，时区可省略。本行可以省略。
+col("datetimestr").str().to_datetime(None,None,opt,lit("raise"))
+<span class="boring">}</span></code></pre></pre>
+<p>to_datatime参数分别为 单位 时区 解析参数 <strong>歧义处理</strong>。世界上很多地区使用夏令时，夏令时开启时，会将本地时间向未来拨动1小时，夏令时结束时再拨回来。向未来拨动1小时会导致某个时段不存在，拨回来时会让某个时段出现两次。当某个时间值出现在不应该存在的时段，就是歧义处理参数发挥作用的时候，设为lit("raise")，出现歧义时间时报错。
+<strong>一个重要经验是日期时间的存储必须包含时区</strong>，比如 "2024-09-20 0:44:00**+08:00**"，有了时区信息才能正确表示时间。在省略时区的情况下，默认为UTC时间。这种正确不只是本地区，数据传到全球各地都能被正确运算和比较。</p>
+<h3 id="日期时间转换为字符串"><a class="header" href="#日期时间转换为字符串">日期时间转换为字符串</a></h3>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>col("datetime").dt().to_string("日期%Y-%m-%d，时间%H:%M:%S")
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="categorical分类变量"><a class="header" href="#categorical分类变量">Categorical分类变量</a></h1>
+<p>分类变量用于优化字符串处理。数据存储时，大量存在用字符串表示类别的情况，例如城市、性别、民族、物种等等。但加载进内存后，大量重复的字符串占用不必要的资源，并且字符串比较运算也非常耗时。分类变量用于解决以上问题：</p>
+<div class="table-wrapper"><table><thead><tr><th>字符串列</th><th>分类列</th><th>-</th></tr></thead><tbody>
+<tr><td>Series</td><td>类型ID</td><td>类型对照</td></tr>
+<tr><td>北极熊</td><td>0</td><td>北极熊</td></tr>
+<tr><td>熊猫</td><td>1</td><td>熊猫</td></tr>
+<tr><td>棕熊</td><td>2</td><td>棕熊</td></tr>
+<tr><td>熊猫</td><td>1</td><td></td></tr>
+<tr><td>棕熊</td><td>2</td><td></td></tr>
+<tr><td>棕熊</td><td>2</td><td></td></tr>
+<tr><td>北极熊</td><td>0</td><td></td></tr>
+<tr><td>…</td><td>…</td><td></td></tr>
+</tbody></table>
+</div>
+<p>经过字符串列 -&gt; Categorical的转换，我们仅仅需要存储类型ID和类型对照表。这大量的节省了内存，也加速了==运算。这种编码的好处是只存储一次字符串值。此外，当我们执行操作（例如排序，计数）时，我们可以对ID进行比较，这比处理字符串数据要快得多。Polars
+支持使用两种不同的数据类型处理分类数据： Enum 和 Categorical
+。当类别数量固定时使用Enum，出现不属于Enum的元素时会被认为出现数据错误。当类别的数量不是固定的，那么使用
+Categorical，出现新的类型会默默的添加进Categorical。如果你的需求在过程中发生变化，你总是可以从一个转换为另一个。</p>
+<p>分类变量的排序有两种类型，一种是依据类型ID数值顺序，一种是根据字符串顺序。这个区别是构建类型时指定：</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>DataType::Categorical(None, CategoricalOrdering::Physical) //对照表ID顺序
+
+DataType::Categorical(None, CategoricalOrdering::Lexical) //词法顺序
+<span class="boring">}</span></code></pre></pre>
+<p>示例：</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>//生成一个Categorical类型Series
+let s= Series::new("字段名", vec!["option1","option2","option3","option4"])
+          .cast(DataType::Categorical(None, CategoricalOrdering::Physical));
+
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="null和none和nan"><a class="header" href="#null和none和nan">Null和None和NaN</a></h1>
+<p>在polars内部缺失数据用Null表示，这是因为polars遵守Apache Arrow
+项目的数据规范。在rust中Option::None用于表示缺失数据。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let df = df! (
+    "value" =&gt; &amp;[Some(1), None],
+)?;
+println!("{}", &amp;df);
+<span class="boring">}</span></code></pre></pre>
+<p>The output:</p>
+<pre><code class="language-bash">shape: (2, 1)
+┌───────┐
+│ value │
+│ ---   │
+│ i64   │
+╞═══════╡
+│ 1     │
+│ null  │
+└───────┘
+</code></pre>
+<p>对于浮点数，也存在NaN（Not a Number），是特殊的一个数，他通常由错误的数学运算产生，NaN也是float类型的特殊值，它并不用来表示缺失。这意味着null_count()只计算null值，而不包括NaN值。fill_nan、fill_null分别用于填充nan和null值。</p>
+<div class="table-wrapper"><table><thead><tr><th>含义</th><th>表达式</th><th>返回值</th></tr></thead><tbody>
+<tr><td>零除以零</td><td>0/0</td><td>NaN</td></tr>
+<tr><td>对负数开根号</td><td>(-1f32).sqrt()</td><td>NaN</td></tr>
+<tr><td>无穷参与的部分运算<br>let inf=std::f32::INFINITY</td><td>inf*0<br>inf/inf</td><td>NaN</td></tr>
+<tr><td>NaN参与的所有数学运算</td><td>NaN+1<br>NaN*1</td><td>NaN</td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="缺失数据的处理"><a class="header" href="#缺失数据的处理">缺失数据的处理</a></h1>
+<div class="table-wrapper"><table><thead><tr><th>处理方案</th><th>示例代码</th></tr></thead><tbody>
+<tr><td>填充常数</td><td><code>col("col2").fill_null(lit(2))</code></td></tr>
+<tr><td>填充表达式值</td><td><code>col("col2").fill_null(median("col2"))</code></td></tr>
+<tr><td>填充前一个值</td><td><code>col("col2").forward_fill(None)</code></td></tr>
+<tr><td>插值</td><td><code>col("col2").interpolate(InterpolationMethod::Linear)</code></td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><p>本章系统介绍数据分析流程和相关概念，特别是IO和DataFrame、LazyFrame的操作。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="示例数据"><a class="header" href="#示例数据">示例数据</a></h1>
+<p>本书中可能会使用一些数据，集中罗列在此。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let mut employee_df: DataFrame = df!("姓名"=&gt; ["老李", "老李", "老李", "老李", "老张", "老张", "老张", "老张", "老王", "老王", "老王", "老王"],
+"员工ID"=&gt; ["员工01", "员工01", "员工01", "员工01", "员工02", "员工02", "员工02", "员工02", "员工03", "员工03", "员工03", "员工03"],
+"日期"=&gt; ["8月", "9月", "10月", "11月", "8月", "9月", "10月", "11月", "8月", "9月", "10月", "11月"],
+"业绩"=&gt; [83, 24, 86, 74, 89, 59, 48, 79, 51, 71, 44, 90])?;
+
+use polars::prelude::*;
+use chrono::prelude::*;
+use polars::prelude::prelude::date_range;
+let mut types_df = df!(
+    "id" =&gt; &amp;[9, 4, 2],
+    "place" =&gt; &amp;["Mars", "Earth", "Saturn"],
+    "date" =&gt; date_range("date".into(),
+NaiveDate::from_ymd_opt(2022, 1, 1).unwrap().and_hms_opt(0, 0, 0).unwrap(),
+NaiveDate::from_ymd_opt(2022, 1, 3).unwrap().and_hms_opt(0, 0, 0).unwrap(),
+Duration::parse("1d"),ClosedWindow::Both, TimeUnit::Milliseconds, None)?,
+    "sales" =&gt; &amp;[33.4, 2142134.1, 44.7],
+    "has_people" =&gt; &amp;[false, true, false],
+    "logged_at" =&gt; date_range("logged_at".into(),
+    NaiveDate::from_ymd_opt(2022, 1, 1).unwrap().and_hms_opt(0, 0, 0).unwrap(), NaiveDate::from_ymd_opt(2022, 1, 1).unwrap().and_hms_opt(0, 0, 2).unwrap(), Duration::parse("1s"),ClosedWindow::Both, TimeUnit::Milliseconds, None)?,
+    )?
+    .with_row_index("index".into(), None)?;
+  let salary_df = df![
+    "类别" =&gt; ["开发","开发","开发","开发","开发","实习","实习","销售","销售","销售"],
+    "员工ID" =&gt; [11,7,9,8,10,5,2,3,1,4],
+    "薪水" =&gt; [5200,4200,4500,6000,5200,3500,3900,4800,5000,4800],
+    ]?;
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="io"><a class="header" href="#io">IO</a></h1>
+<p>本章介绍如何从常见格式 CSV、parquet、Json中读取和写入数据。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="从csv构建dataframe"><a class="header" href="#从csv构建dataframe">从CSV构建Dataframe</a></h1>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>//需要polars-io特性，从csv文件创建，lazy dataframe
+use polars::prelude::*;
+
+//立即载入内存。如果csv内容很大，应该考虑使用lazy api
+let path="E:\\myfile\\src\\pol\\input收治病人数据.csv";
+let df = CsvReadOptions::default()
+    .try_into_reader_with_file_path(Some(path.into()))
+    .unwrap()
+    .finish()
+    .unwrap();
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="从csv创建lazyframe"><a class="header" href="#从csv创建lazyframe">从CSV创建lazyframe</a></h1>
+<p>用于lazy方式读取csv文件，普通读取文件的方式会立刻将数据载入内存。对于csv文件非常大来说会占用不必要的资源。Lazy API将事实读取推迟到lazyDataframe的collect()方法调用。在collect()函数调用之前，你可以设置处理方式和计算表达式。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>//需要polars-io特性，从csv文件创建，lazyframe
+use polars::prelude::*;
+let lazyreader=LazyCsvReader::new("./test.csv");
+let lazyreader=LazyCsvReader::new_paths(&amp;["./test0.csv","./test1.csv"]); 读取多个文件。
+let lf= lazyreader.finish()?;
+<span class="boring">}</span></code></pre></pre>
+<h2 id="lazycsvreader-api"><a class="header" href="#lazycsvreader-api">LazyCsvReader API</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>API</th><th>含义</th></tr></thead><tbody>
+<tr><td>with_glob(toggle: bool)</td><td>对路径开启glob通配符功能。</td></tr>
+<tr><td>with_skip_rows_after_header(self, offset: usize)</td><td>在header后跳过offset数量的行</td></tr>
+<tr><td>with_row_index(self, row_index: Option&lt;RowIndex&gt;)</td><td>读取后增加加行索引号，起始索引为0. RowIndex{name:"RowIndex",offset:0}</td></tr>
+<tr><td>with_n_rows(num_rows: Option&lt;usize&gt;)</td><td>只读取n行，在多线程条件下无法保证精确n。</td></tr>
+<tr><td>with_skip_rows( n: usize)</td><td>跳过n行，header从行索引n开始。</td></tr>
+<tr><td>with_has_header(has_header: bool)</td><td>是否存在标题行</td></tr>
+<tr><td>with_separator(separator: u8)</td><td>默认字段分隔符</td></tr>
+<tr><td>with_comment_prefix(comment_prefix: Option&lt;&amp;str&gt;)</td><td>注释标记，以comment_prefix开始的行被当做注释忽略。</td></tr>
+<tr><td>with_quote_char(quote_char: Option&lt;u8&gt;)</td><td>字符串引号标记，b'"'</td></tr>
+<tr><td>with_eol_char(eol_char: u8)</td><td>行结束符，b'\n'</td></tr>
+<tr><td>with_null_values(null_values: Option&lt;NullValues&gt;)</td><td>设置识别为空值的字符串</td></tr>
+<tr><td>with_encoding(CsvEncoding::Utf8)</td><td>设置字符集</td></tr>
+<tr><td>finish()</td><td>获得最终的lazyframe</td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="schema"><a class="header" href="#schema">Schema</a></h1>
+<p>Schema在polars指的是数据表的结构，包含字段名和字段类型的详细信息。通常在csv载入时，polars能自动猜测数据类型。但偶尔会不满足需要，需要手动指明类型。例如解析日期时间。在.with_dtype_overwrite调用中不需要指明全部字段的信息，未指明的字段仍会自动猜测。可用的数据类型参见<a href="Rust-Polars-API-tutorial/zh_cn/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5.html#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">数据类型</a></p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>// 本段代码演示如何指定csv部分字段的类型。
+use polars::prelude::*;
+use std::fs::File;
+let mut schema = Schema::default();
+    schema.insert("col1".into(),DataType::String);
+    schema.insert("col2".into(),DataType::Datetime( TimeUnit::Milliseconds, None));
+    // polars 能自动识别形如"2024-09-20 00:44:00+08:00"的标准时间格式，其中+08:00表示时区，如省略时区部分则默认为UTC时区
+    schema.insert("col3".into(), DataType::Categorical(None, CategoricalOrdering::Physical ));
+let lazyreader=LazyCsvReader::new("E:\\data.csv")
+    .with_has_header(true)
+    .with_dtype_overwrite(Some(schema.into()));//根据列名设置字段类型。
+    .finish()?;
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="写入csv文件"><a class="header" href="#写入csv文件">写入CSV文件</a></h1>
+<h2 id="dataframe-to-file"><a class="header" href="#dataframe-to-file">Dataframe to file</a></h2>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>//写入csv文件
+let mut file = File::create("docs/data/output.csv").expect("could not create file");
+CsvWriter::new(&amp;mut file).finish(&amp;mut employee_df)?;
+<span class="boring">}</span></code></pre></pre>
+<h2 id="lazyframe-to-file"><a class="header" href="#lazyframe-to-file">lazyframe to file</a></h2>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let mut opt= CsvWriterOptions::default();
+opt.maintain_order=true; //数据是并行处理的，如不开启此选项，文件中行顺序不能保证
+opt.include_bom=true;//添加BOM 。如果不添加BOM，Excel打开会乱码;某些程序不支持UTF8 BOM，此时也会乱码。
+df1.lazy().sink_csv("d:/out.csv", opt)?; 
+<span class="boring">}</span></code></pre></pre>
+<p>BOM即Byte Order Mark字节序标记。BOM是为UTF-16和UTF-32准备的，用户标记字节序（byte order）。BOM即Byte Order Mark字节序标记。UTF-16、UTF-32是以2个字节和4个字节为单位进行处理的，就要考虑大端序、小端序问题。UTF-8编码是以1个字节为单位进行处理的，不会受CPU大小端的影响；UTF-8不需要BOM来表明字节顺序，不包含BOM的UTF-8才是标准格式。但微软选择用BOM来表明编码方式，因此没有BOM的UTF-8 CSV格式Excel会乱码，因为Excel默认编码为。含有BOM的UTF8格式也有兼容性问题，某些程序不识别BOM，就会导致UTF-8乱码。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="从parquet格式构建dataframe"><a class="header" href="#从parquet格式构建dataframe">从parquet格式构建Dataframe</a></h1>
+<p>Apache Parquet是一种开源的列式存储数据文件格式，旨在高效存储和检索数据。它提供了高效的数据压缩和编码方案，能够处理大量复杂数据。同时，支持多种编程语言。与简单的CSV格式相比，Parquet在存储和处理大数据集时具有明显优势：</p>
+<ul>
+<li>存储效率：Parquet体积比CSV小得多。支持多种数据压缩。</li>
+<li>查询性能：Parquet的导入和查询速度远高于CSV，特别是在处理大数据时。</li>
+<li>自描述：Parquet 文件包含有关数据结构的元数据，包含字段和字段类型的详细信息。</li>
+<li>兼容性和性能：Parquet受到许多数据处理框架（如 Hadoop 和 Spark）的兼容</li>
+</ul>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>//本代码演示如何加载Parquet格式文件
+use std::fs::File;
+use polars::prelude::*;
+let mut input_file=File::open("d:/output.parquet")?;
+let df = ParquetReader::new(&amp;mut input_file).finish()?;
+println!("{}",df);
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="从parquet格式构建lazyframe"><a class="header" href="#从parquet格式构建lazyframe">从parquet格式构建lazyframe</a></h1>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let mut opt = ScanArgsParquet::default();
+opt.n_rows=None; //默认为None意为读取所有行，Some(100)只读取100行
+opt.row_index=Some(RowIndex{name:"RowIndex".into(),offset:0});//将行索引添加到第一列，列名为RowIndex。默认为None表示不添加行索引。
+let lf = LazyFrame::scan_parquet("d:/output.parquet", opt)?;
+println!("{}",lf.collect()?);
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="写入parquet格式"><a class="header" href="#写入parquet格式">写入parquet格式</a></h1>
+<h2 id="dataframe-to-file-1"><a class="header" href="#dataframe-to-file-1">Dataframe to file</a></h2>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span>
+<span class="boring">fn main() {
+</span>use std::fs::File;
+use polars::prelude::*;
+let mut file = File::create("d:/output.parquet").expect("could not create file");
+ParquetWriter::new(&amp; mut file).with_compression(ParquetCompression::Zstd(None)).finish(&amp; mut employee_df)?;
+<span class="boring">}</span></code></pre></pre>
+<h2 id="lazyframe-to-file-1"><a class="header" href="#lazyframe-to-file-1">lazyframe to file</a></h2>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let mut opt = ParquetWriteOptions {
+    compression: ParquetCompression::Zstd(None),//启用压缩
+    maintain_order: true,//保持行顺序，默认多线程操作行序无法保证
+    ..Default::default()
+};
+employee_df.lazy().sink_parquet("D:/output.parquet",opt)?;
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="从json创建dataframe"><a class="header" href="#从json创建dataframe">从Json创建Dataframe</a></h1>
+<p>Json支持两种格式的Json文件：</p>
+<div class="table-wrapper"><table><thead><tr><th>类型</th><th>含义</th></tr></thead><tbody>
+<tr><td>JsonFormat::Json</td><td>表示整个文件中包含一个数组，数组内容是一个一个的Json object。</td></tr>
+<tr><td>JsonFormat::JsonLines</td><td>一行一个Json object。</td></tr>
+</tbody></table>
+</div>
+<h2 id="json"><a class="header" href="#json">Json</a></h2>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use polars::prelude::*;
+    // one json array stored in entire file
+let json_array=r#"
+[
+{  "json_a": 1,         "b": 2,       "c": 3},
+{  "json_a": 21,   "b": 22,    "c": 23},
+{  "json_a": 31,   "b": 32,    "c": 33}
+]"#;
+let buf=Cursor::new(json_array);//实现Read trait都可以作为输入
+let df = JsonReader::new(buf)
+    .with_json_format(JsonFormat::Json)
+    .finish()?;
+<span class="boring">}</span></code></pre></pre>
+<h2 id="jsonlines"><a class="header" href="#jsonlines">JsonLines</a></h2>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>//one json object per line;
+let json_lines=r#" 
+    {"jsonlines_a": 1,"b": 2,"c": 3}
+    {"jsonlines_a": 21,"b": 22,"c": 23}
+    {"jsonlines_a": 31,"b": 32,"c": 33}"#;
+let buf1=Cursor::new(json_lines);//实现Read trait都可以作为输入
+let df1 = JsonReader::new(buf1)
+    .with_json_format(JsonFormat::JsonLines)
+    .finish()?;
+
+    println!("{}\n{}",df,df1);
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="从json创建lazyframe"><a class="header" href="#从json创建lazyframe">从Json创建LazyFrame</a></h1>
+<p>用于lazy方式读取Jsonline文件，普通读取文件的方式会立刻将数据载入内存。对于Json文件非常大来说会占用不必要的资源。Lazy API将事实读取推迟到LazyFrame的collect()方法调用。在collect()函数调用之前，你可以设置处理方式和计算表达式。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>//需要polars-io特性，从Json文件创建，lazyframe
+use polars::prelude::*;
+let lazyreader=LazyJsonLineReader::new("./test.csv");
+let lazyreader=LazyJsonLineReader::new_paths(&amp;["./test0.csv","./test1.csv"]); 读取多个文件。
+let lf= lazyreader.finish()?;
+<span class="boring">}</span></code></pre></pre>
+<h2 id="lazyjsonlinereader-api"><a class="header" href="#lazyjsonlinereader-api">LazyJsonLineReader API</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>API</th><th>含义</th></tr></thead><tbody>
+<tr><td>with_row_index(self, row_index: Option&lt;RowIndex&gt;)</td><td>读取后增加加行索引号，起始索引为0. RowIndex{name:"RowIndex",offset:0}</td></tr>
+<tr><td>with_n_rows(num_rows: Option&lt;usize&gt;)</td><td>只读取n行，在多线程条件下无法保证精确n。</td></tr>
+<tr><td>with_schema_overwrite( self, schema_overwrite)</td><td>设置部分字段的类型</td></tr>
+<tr><td>finish()</td><td>获得最终的lazyframe</td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="写入json"><a class="header" href="#写入json">写入Json</a></h1>
+<h2 id="dataframe-to-file-2"><a class="header" href="#dataframe-to-file-2">Dataframe to file</a></h2>
+<p>Json文件有两种格式JsonFormat::Json和JsonFormat::Json，详情见<a href="Rust-Polars-API-tutorial/zh_cn/IO-%E4%BB%8EJson%E5%88%9B%E5%BB%BADataframe.html">从Json创建Dataframe.md</a></p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>//写入Json文件
+let mut file = File::create("docs/data/output.json").expect("could not create file");
+JsonWriter::new(&amp;mut file)
+    .with_json_format(JsonFormat::Json) //JsonFormat::Json 或 JsonFormat::JsonLines 
+    .finish(&amp;mut employee_df)?;
+<span class="boring">}</span></code></pre></pre>
+<h2 id="lazyframe-to-file-2"><a class="header" href="#lazyframe-to-file-2">lazyframe to file</a></h2>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let mut opt= JsonWriterOptions::default();
+opt.maintain_order=true; //数据是并行处理的，如不开启此选项，文件中行顺序不能保证
+employee_df.lazy().sink_json("d:/out.json", opt)?;
+//默认为JsonLines格式，暂时无法设置为Json格式。
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="series"><a class="header" href="#series">Series</a></h1>
+<p>Series是储存字段的数据结构。其中保存了字段内的所有元素，所有元素要求类型相同。Series的本质是ChunkedArray，即分块存储的数组。在Polars中，Series里的数据是以块（chunks）的形式存储的，每个块都是一个独立的数组。这种设计可以提高数据处理的效率，特别是在进行大规模数据操作时，分块后的数据可以并行运算。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="构造series"><a class="header" href="#构造series">构造Series</a></h1>
+<p>Series是储存字段的数据结构。其中保存了字段内的所有元素，所有元素要求类型相同。Series的本质是ChunkedArray，即分块存储的数组。在Polars中，Series里的数据是以块（chunks）的形式存储的，每个块都是一个独立的数组。这种设计可以提高数据处理的效率，特别是在进行大规模数据操作时，分块后的数据可以并行运算。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use polars::prelude::*;
+let s = Series::new("字段名", vec![0i32, 2, 1,3, 8]);
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="索引series"><a class="header" href="#索引series">索引Series</a></h1>
+<h2 id="seriessliceidxlen切片索引"><a class="header" href="#seriessliceidxlen切片索引">series.slice(idx,len)切片索引</a></h2>
+<p>返回的Series是self的视图，并不拷贝数据。 如果_offset为负数，那么从数组末尾开始计数。
+函数声明：
+<code>fn slice(&amp;self, _offset: i64, _length: usize) -&gt; Series</code></p>
+<p>示例：</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let s = Series::new("字段名", [0i32, 1, 8]);
+let s2 = s.slice(2, 4);
+<span class="boring">}</span></code></pre></pre>
+<h2 id="索引号索引"><a class="header" href="#索引号索引">索引号索引</a></h2>
+<h3 id="seriestake_sliceu32"><a class="header" href="#seriestake_sliceu32"><code>series.take_slice(&amp;[u32])</code></a></h3>
+<p>当索引数组保存在切片里，使用take_slice</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let s = Series::new("foo".into(), [1i32 ,2, 4,5,7,3]);
+let s2 = s.take_slice(&amp;[1,3,5])
+//s2 == Series[2,5,3]
+<span class="boring">}</span></code></pre></pre>
+<h2 id="seriestakeidxca"><a class="header" href="#seriestakeidxca"><code>series.take(&amp;IdxCa)</code></a></h2>
+<p>索引保存在IdxCA类型，使用take方法。IdxCa是<code>ChunkedArray&lt;UInt32Type&gt;</code>类型的别名。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let s = Series::new("foo".into(), [1i32 ,2, 4,5,7,3]);
+let idx0:IdxCa= IdxCa::from_vec("索引".into(), vec![1,3,4]);
+let res0 = s.take(&amp;idx0).unwrap();
+println!("{}", res0); 
+<span class="boring">}</span></code></pre></pre>
+<h2 id="逻辑索引"><a class="header" href="#逻辑索引">逻辑索引</a></h2>
+<p><code>series.filter(bool_idxs)</code></p>
+<p>bool_idx为逻辑索引，本质上是一系列bool值的数组。 bool_idx值为true的元素所对应的索引，将从series复制，并返回。这里潜在的要求是len(bool_idx)==len(series)。bool_dix是BooleanChunked类型，是ChunkedArray类型的别名，
+series定义了bool运算函数，支持Series和单个值比较，也支持Series之间比较。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>        let s1 = Series::new("字段名1", vec![0i32, 1,2,5,8]);
+        let s2 = Series::new("字段名2", vec![2i32, -1,3,-5,8]);
+        let idx = s1.gt(&amp;s2).unwrap() &amp; s1.lt_eq(5).unwrap();
+        let s2=s.filter(&amp;idx).unwrap();
+<span class="boring">}</span></code></pre></pre>
+<h2 id="逻辑运算"><a class="header" href="#逻辑运算">逻辑运算</a></h2>
+<p><code>series.filter(bool_idxs)</code>中的bool_idxs是BooleanChunked类型，可由逻辑运算返回。</p>
+<div class="table-wrapper"><table><thead><tr><th>Series比较方法</th><th>含义</th></tr></thead><tbody>
+<tr><td>.gt(&amp;Series)</td><td>&gt;</td></tr>
+<tr><td>.gt_eq(&amp;Series)</td><td>&gt;=</td></tr>
+<tr><td>.equal()</td><td>==</td></tr>
+<tr><td>.equal_missing()</td><td>==</td></tr>
+<tr><td>.not_equal()</td><td>!=</td></tr>
+<tr><td>.not_equal_missing()</td><td>!=</td></tr>
+<tr><td>.lt()</td><td>&lt;</td></tr>
+<tr><td>.lt_eq()</td><td>&lt;=</td></tr>
+<tr><td>.is_nan()</td><td>是否为NaN</td></tr>
+<tr><td>.is_not_nan()</td><td>不是NaN</td></tr>
+<tr><td>.is_empty()</td><td>是否为空, series.len()==0</td></tr>
+<tr><td>.is_finite()</td><td>是否无穷</td></tr>
+<tr><td>.is_infinite()</td><td>是否非无穷</td></tr>
+<tr><td>.none_to_nan(&amp;self)</td><td>将缺失值转换成NaN</td></tr>
+<tr><td>.is_null()</td><td>是否null，表示缺失值</td></tr>
+<tr><td>.Is_not_null()</td><td>不是null</td></tr>
+</tbody></table>
+</div>
+<p>*_missing系列函数用于比较两个Series或ChunkedArray是否相等，同时考虑到可能存在的缺失值（也就是None或NaN）。 在很多情况下，直接比较两个包含缺失值的Series或ChunkedArray可能会得到不准确的结果，因为None或NaN并不等于任何值，包括它们自身。equal_missing函数提供了一种方式来处理这种情况，它将两个相同位置都是缺失值的元素视为相等。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="读取单个元素"><a class="header" href="#读取单个元素">读取单个元素</a></h1>
+<p>Series必须先解析为指定类型的ChunkedArray才能进行索引：</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let s = Series::new("字段名", [0i32, 1, 8]);
+let item =x.i32().unwrap().get(2).unwrap();
+<span class="boring">}</span></code></pre></pre>
+<p>如果你需要在循环中处理<code>Series</code>中的元素，最好的做法是使用series.i32() 等系列函数，取出底层的Chunkedarray&lt;T&gt;引用，并不会复制一份数据。然后在这个<code>ChunkedArray</code>上进行操作。
+可用的解析函数：<code>i8() i16() i32() i64() f32() f64() u8() u16() u32() u64() bool() str() binary() decimal() list()</code>，它们取出Series底层的Chunkedarray&lt;T&gt;引用。另外你需要自己保证调用的解析函数和底层的T类型一致，否则会出现运行时错误。转换底层类型T使用Series::cast(&amp;DataType::Int64)函数，他会转换底层Chunkedarray&lt;T&gt;的T的类型，返回新的Series。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="遍历值"><a class="header" href="#遍历值">遍历值</a></h1>
+<p>Series本身是动态类型变量。如果编程时类型未知，则必须使用Series:iter()迭代器，它会返回AnyValue封装后的值，封装和解包会产生性能损失。尽量避免返回AnyValue的API。</p>
+<h2 id="底层类型未知"><a class="header" href="#底层类型未知">底层类型未知</a></h2>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let s = Series::new("foo".into(), [1i32 ,2, 3]);
+let s_squared: Series = s.iter()
+    .map(|opt_v| {
+        match opt_v {
+            AnyValue::Int32(x) =&gt; Some(x*x),
+            //可以添加不同类型的处理逻辑。
+            _ =&gt; None,
+        }
+}).collect();
+<span class="boring">}</span></code></pre></pre>
+<h2 id="底层类型已知"><a class="header" href="#底层类型已知">底层类型已知</a></h2>
+<p>如果底层类型已经知晓，可以用<code>i8() i16() i32() i64() f32() f64() u8() u16() u32() u64() bool() str() binary() decimal() list()</code>这些向下转型函数，取出Series底层的Chunkedarray&lt;T&gt;引用。类型解析操作只是对底层的Chunkedarray&lt;T&gt;引用做了类型转换，并不会复制一份数据。另外你需要自己保证调用的解析函数和底层的T类型一致，否则会出现运行时错误。
+<code>s.i32()?.iter()</code>生成对应的迭代器。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let s = Series::new("foo", [1i32 ,2, 3]);
+let s_squared: Series = s.i32()?.iter()
+    .map(|opt_v| {
+        match opt_v {
+            Some(v) =&gt; Some(v * v),
+            None =&gt; None, // null value
+        }
+}).collect();
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="算数运算"><a class="header" href="#算数运算">算数运算</a></h1>
+<p>Polars定义了 加减乘除等算数运算，用法如下。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let s = Series::new("a", [1 , 2, 3]);
+let out_add = &amp;s + &amp;s;
+let out_sub = &amp;s - &amp;s;
+let out_div = &amp;s / &amp;s;
+let out_mul = &amp;s * &amp;s;
+//支持Series 和 Series运算，也支持Series和数的运算
+let s: Series = (1..3).collect();
+let out_add_one = &amp;s + 1;
+let out_multiply = &amp;s * 10;
+let out_divide = 1.div(&amp;s);//除法
+let out_add = 1.add(&amp;s);  //加法
+let out_subtract = 1.sub(&amp;s); //减法
+let out_multiply = 1.mul(&amp;s);//乘法
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="series常用api"><a class="header" href="#series常用api">Series常用API</a></h1>
+<div class="table-wrapper"><table><thead><tr><th>方法</th><th>含义</th></tr></thead><tbody>
+<tr><td>series.len()</td><td>返回Series长度</td></tr>
+<tr><td>series.name()</td><td>返回name</td></tr>
+<tr><td>series.rename(&amp;str)</td><td>重命名name</td></tr>
+<tr><td>series.rechunk()</td><td>Series本质上是分块后的数组，这有助于并行运算。但经过多次索引操作后，分块会非常碎片化，这影响计算效率。rechunk将相邻chunk合并，以提升运算效率。</td></tr>
+<tr><td>series.cast(&amp;DataType::Int64)</td><td>转换Series内部数据类型，返回新series</td></tr>
+<tr><td>series.chunks()</td><td>返回chunks</td></tr>
+<tr><td>series.chunk_lengths</td><td>返回chunks长度迭代器</td></tr>
+<tr><td>series.get(u32)</td><td>用AnyValue类型返回指定索引的值。</td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="dataframe"><a class="header" href="#dataframe">Dataframe</a></h1>
+<p>Polars是一个高性能的数据处理库，专为快速分析大规模数据而设计。它的DataFrame是一个类似于Pandas的二维表格数据结构，但在性能和内存管理上进行了优化。
+Polars DataFrame的特点：</p>
+<ul>
+<li>列式存储：Polars采用列式存储，能更高效地进行数据读取和处理，特别适合大数据集。</li>
+<li>并行处理：Polars利用多核CPU进行并行计算，显著提高数据处理速度。</li>
+<li>强类型系统：Polars在编译时检查数据类型，减少运行时错误。</li>
+<li>丰富的功能：提供了各种数据处理功能，包括过滤、聚合、连接和变换等。</li>
+</ul>
+<p>Polars DataFrame为数据科学家和分析师提供了一种高效、灵活的数据处理工具，特别适合处理大规模数据集。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="构造dataframe"><a class="header" href="#构造dataframe">构造Dataframe</a></h1>
+<h2 id="空白dataframe"><a class="header" href="#空白dataframe">空白Dataframe</a></h2>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use polars::prelude::*;
+let df = DataFrame::default();
+<span class="boring">}</span></code></pre></pre>
+<h2 id="从宏创建dataframe"><a class="header" href="#从宏创建dataframe">从宏创建Dataframe</a></h2>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use polars::prelude::*;
+let mut arr = [0f64; 5];
+let v=vec![1,2,3,4,5];
+//df宏支持
+let df = df! (
+    "nrs" =&gt; &amp;[Some(1), Some(2), Some(3), None, Some(5)], //直接字面值，用None表示null。
+    "names" =&gt; &amp;["A", "A", "B", "C", "B"], //直接字面值
+    "col3" =&gt; &amp;arr, //rust数组
+    "groups" =&gt; &amp;v,  // 由Vec 生成
+)?;
+println!("{}", &amp;df);
+<span class="boring">}</span></code></pre></pre>
+<h2 id="从vecseries构建dataframe"><a class="header" href="#从vecseries构建dataframe">从Vec&lt;Series&gt;构建Dataframe</a></h2>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use polars::prelude::*;
+let s1 = Series::new("Fruit".into(), ["Apple", "Apple", "Pear"]);
+let s2 = Series::new("Color".into(), ["Red", "Yellow", "Green"]);
+//s1 s2必须拥有同样的长度。
+let df: PolarsResult&lt;DataFrame&gt; = DataFrame::new(vec![s1, s2]);
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="索引dataframe"><a class="header" href="#索引dataframe">索引Dataframe</a></h1>
+<h2 id="列索引"><a class="header" href="#列索引">列索引</a></h2>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let res: &amp;Series =employee_df.column("员工")?;  //根据单个列名返回Series引用
+let res: &amp;Series =employee_df.select_at_idx(1)?;  //根据索引返回对应Series的引用
+let res:Dataframe=employee_df.select(["类别", "薪水"])？//复制对应字段，返回新Dataframe。
+
+let sv: Vec&lt;&amp;Series&gt; = employee_df.columns(["类别", "薪水"])?;//根据多个列名返回对应Series的引用
+let res: &amp;[Series]=employee_df.get_columns()?;//返回所有列的切片，指向Dataframe内部数据结构并没有复制数据。
+let res: Vec&lt;Series&gt;=employee_df.take_columns();//获得所有列的所有权
+<span class="boring">}</span></code></pre></pre>
+<h2 id="行索引"><a class="header" href="#行索引">行索引</a></h2>
+<h3 id="bool索引"><a class="header" href="#bool索引">Bool索引</a></h3>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let se=employee_df.column("业绩")?;
+let mask = se.gt_eq(80)?; //判断se是否大于等于80。返回Bool数组。
+let res:DataFrame = employee_df.filter(&amp;mask)?;
+<span class="boring">}</span></code></pre></pre>
+<h3 id="切片索引"><a class="header" href="#切片索引">切片索引</a></h3>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let res:DataFrame = employee_df.slice(5,3);
+<span class="boring">}</span></code></pre></pre>
+<h3 id="索引值"><a class="header" href="#索引值">索引值</a></h3>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let idx = IdxCa::new("idx".into(), [0, 1, 9]);
+let res:DataFrame =employee_df.take(&amp;idx)?;//返回索引为0 1 9 的行
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="分组和简单聚合"><a class="header" href="#分组和简单聚合">分组和简单聚合</a></h1>
+<p>LazyFrame经过精心设计，更便于使用：建议调用dataframe.lazy()转换为LazyFrame后再进行聚合。</p>
+<div class="table-wrapper"><table><thead><tr><th>术语</th><th>含义</th></tr></thead><tbody>
+<tr><td>简单聚合</td><td>输入若干数据，根据某种算法返回一个值。例如：min，max，mean,head,tail等等都属于聚合函数。</td></tr>
+<tr><td>分组</td><td>顾名思义，将数据根据指定字段进行分组，后续的聚合操作将对每个组调用一次聚合函数。</td></tr>
+</tbody></table>
+</div>
+<h2 id="实战1"><a class="header" href="#实战1">实战1</a></h2>
+<p>观察示例数据employee_df，其中保存了3位员工近4个月的业绩。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let mut employee_df: DataFrame = df!("姓名"=&gt; ["老李", "老李", "老李", "老李", "老张", "老张", "老张", "老张", "老王", "老王", "老王", "老王"],
+"员工ID"=&gt; ["员工01", "员工01", "员工01", "员工01", "员工02", "员工02", "员工02", "员工02", "员工03", "员工03", "员工03", "员工03"],
+"日期"=&gt; ["8月", "9月", "10月", "11月", "8月", "9月", "10月", "11月", "8月", "9月", "10月", "11月"],
+"业绩"=&gt; [83, 24, 86, 74, 89, 59, 48, 79, 51, 71, 44, 90])?;
+<span class="boring">}</span></code></pre></pre>
+<p>现在的需求是计算每个人所有月份业绩平均值，并且计算出每个人业绩大于70的次数。数据需要根据<code>员工ID</code>进行分组然后聚合。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>   let res = employee_df.lazy().group_by(["员工ID","姓名"]) //group_by执行后可能会打乱行序，group_by_stable可以保留原行序。
+            .agg([
+                col("业绩").mean().alias("平均业绩"),
+                col("业绩").gt(70).cast(DataType::Int32).sum().alias("大于70次数")
+            ]).collect()?;
+        
+    println!("{}",res);
+<span class="boring">}</span></code></pre></pre>
+<p>polars通过表达式提供的聚合函数能完成简单聚合。
+<img src="Rust-Polars-API-tutorial/zh_cn/res/%E7%AE%80%E5%8D%95%E8%81%9A%E5%90%88%E6%BC%94%E7%A4%BA.png" alt="简单聚合演示" /></p>
+<h2 id="实战2"><a class="header" href="#实战2">实战2</a></h2>
+<p>计算每个月份获得业务第一名，第二名的人及其对应业绩。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>    let res = employee_df.lazy().group_by(["日期"]) //group_by执行后可能会打乱行序，group_by_stable可以保留原行序。
+    .agg([
+        col("员工ID"),
+        col("业绩"),
+        col("业绩").rank(RankOptions::default(),None).alias("rank"),
+    ]) //step 1
+    .explode([col("员工ID"),col("业绩"),col("rank")]) //step2
+    .filter(col("rank").gt_eq(2))  //step3
+    .collect()?
+    ;
+<span class="boring">}</span></code></pre></pre>
+<h3 id="step1"><a class="header" href="#step1">Step1</a></h3>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>.group_by(["日期"]).agg([
+        col("员工ID"),
+        col("业绩"),
+        col("业绩").rank(RankOptions::default(),None).alias("rank"),
+    ])
+<span class="boring">}</span></code></pre></pre>
+<p>实战2中调用的agg聚合操作将组内的多个结果包裹进一个list。</p>
+<pre><code class="language-bash">shape: (4, 4)
+┌──────┬────────────────────────────────┬──────────────┬───────────┐
+│ 日期 │ 员工ID                         ┆ 业绩          ┆ rank      │
+│ ---  ┆ ---                            ┆ ---          ┆ ---       │
+│ str  ┆ list[str]                      ┆ list[i32]    ┆ list[u32] │
+╞══════╪════════════════════════════════╪══════════════╪═══════════╡
+│ 10月 ┆ ["员工01", "员工02", "员工03"]  ┆ [86, 48, 44] ┆ [3, 2, 1] │
+│ 8月  ┆ ["员工01", "员工02", "员工03"]  ┆ [83, 89, 51] ┆ [2, 3, 1] │
+│ 11月 ┆ ["员工01", "员工02", "员工03"]  ┆ [74, 79, 90] ┆ [1, 2, 3] │
+│ 9月  ┆ ["员工01", "员工02", "员工03"]  ┆ [24, 59, 71] ┆ [1, 2, 3] │
+└──────┴────────────────────────────────┴──────────────┴───────────┘
+</code></pre>
+<h3 id="step2"><a class="header" href="#step2">step2</a></h3>
+<p><code>.explode([col("员工ID"),col("业绩"),col("rank")])</code>
+该调用将被list包裹的值解包。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>shape: (12, 4)
+┌──────┬────────┬──────┬──────┐
+│ 日期 ┆ 员工ID ┆ 业绩 ┆ rank │
+│ ---  ┆ ---    ┆ ---  ┆ ---  │
+│ str  ┆ str    ┆ i32  ┆ u32  │
+╞══════╪════════╪══════╪══════╡
+│ 8月  ┆ 员工01 ┆ 83   ┆ 2    │
+│ 8月  ┆ 员工02 ┆ 89   ┆ 3    │
+│ 8月  ┆ 员工03 ┆ 51   ┆ 1    │
+│ 10月 ┆ 员工01 ┆ 86   ┆ 3    │
+│ 10月 ┆ 员工02 ┆ 48   ┆ 2    │
+│ …    ┆ …      ┆ …    ┆ …    │
+│ 11月 ┆ 员工02 ┆ 79   ┆ 2    │
+│ 11月 ┆ 员工03 ┆ 90   ┆ 3    │
+│ 9月  ┆ 员工01 ┆ 24   ┆ 1    │
+│ 9月  ┆ 员工02 ┆ 59   ┆ 2    │
+│ 9月  ┆ 员工03 ┆ 71   ┆ 3    │
+└──────┴────────┴──────┴──────┘
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="复杂聚合和自定义函数"><a class="header" href="#复杂聚合和自定义函数">复杂聚合和自定义函数</a></h1>
+<ul>
+<li>简单聚合：输入单个Series，输出只有一个元素的Series。</li>
+<li>复杂聚合：输入多个Series，输出多行和多列。</li>
+</ul>
+<p>复杂聚合需要自定义函数计算出我们想要的结果。</p>
+<h2 id="dataframe复杂聚合"><a class="header" href="#dataframe复杂聚合">DataFrame复杂聚合</a></h2>
+<p><code>DataFrame.group_by(["date"])?.apply(F)</code> 组合可完成复杂聚合。
+F为自定义函数，要求F满足 <code>|x: DataFrame| -&gt; Result&lt;DataFrame, PolarsError&gt;</code>
+以分组后的数据封装进Dataframe，这样可以获得所有字段，返回Dataframe，每一组可以返回多行多列，但要求不同组返回的Dataframe的字段顺序、名称、类型一致。在返回的Dataframe中需要自己维护组别字段。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>    let mut employee_df: DataFrame = df!("Name"=&gt; ["老李", "老李", "老李", "老李", "老张", "老张", "老张", "老张", "老王", "老王", "老王", "老王"],
+    "employee_ID"=&gt; ["员工01", "员工01", "员工01", "员工01", "员工02", "员工02", "员工02", "员工02", "员工03", "员工03", "员工03", "员工03"],
+    "date"=&gt; ["8月", "9月", "10月", "11月", "8月", "9月", "10月", "11月", "8月", "9月", "10月", "11月"],
+    "score"=&gt; [83, 24, 86, 74, 89, 59, 48, 79, 51, 71, 44, 90])?;
+    let f = |x: DataFrame| -&gt; Result&lt;DataFrame, PolarsError&gt; {
+        let col1: &amp;Series = x.column("Name")?;
+        let col2: &amp;Series = x.column("employee_ID")?;
+        let col3: &amp;Series = x.column("score")?;
+        let group_id = x.column("date")?.str()?.get(0).unwrap();
+        // do something; We get those results below;
+        let group_field = Series::new("group".into(), vec![group_id, group_id, group_id]);
+        let res_field1 = Series::new("field1".into(), vec!["a1,1", "a2,1", "a3,1"]);
+        let res_field2 = Series::new("field2".into(), vec!["a1,2", "a2,2", "a3,2"]);
+        let res_field3 = Series::new("field3".into(), vec!["a1,3", "a2,3", "a3,3"]);
+        let result = DataFrame::new(vec![group_field, res_field1, res_field2, res_field3])?;
+        return Ok(result);
+    };
+    let res = employee_df.group_by(["date"])?.apply(f)?; //一次聚合返回了3行3列
+    println!("{}", res);
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="join操作"><a class="header" href="#join操作">Join操作</a></h1>
+<h2 id="什么是join联接"><a class="header" href="#什么是join联接">什么是join联接</a></h2>
+<p>数据处理中经常出现以下需求：一张表保存了大量用户id和用户姓名、年龄、手机号、购物地址等等用户信息，另一张表保存了用户id和待快递商品，商品价格等等交易信息。如何能根据id将两张表的数据整合到一起。</p>
+<p>联接操作用于解决以上问题。根据两张dataframe指定字段，将两张表组合到一起。join需要两个dataframe作为输入，分别称为左表和右表；另外必须指明哪些字段被用做匹配依据，称为"键"，除了键以外的所有字段被用作值，分别称为左表值字段、右表值字段。join运算的结果包含：键，左表值字段、右表值字段。
+join会出现4种情况</p>
+<ol>
+<li>某键在左表中出现，在右表未出现；此键对应的右表值字段视为null</li>
+<li>某键在右表中出现，在左表未出现；此键对应的左表值字段视为null</li>
+<li>某键在两张表中都出现; 键至少在其中一个表是unique的。</li>
+<li>某键在两张表中都出现; 键在两张表都不是unique的。会导致多对多联接，结果意义不明，通常是数据错误导致，需仔细排查。</li>
+</ol>
+<p>主要链接操作分5种：</p>
+<ol>
+<li>左联接left_join:结果保留所有左表的键，及其对应的左表值字段、右表值字段。对于右表中未出现的键对应的值视为null。</li>
+<li>右联接right_join: 结果保留所有右表的键，及其对应的左表值字段、右表值字段。对于左表中未出现的键对应的值视为null。</li>
+<li>内联接inner_join:结果保留左表和右表共有的键，及其对应的左表值字段、右表值字段。</li>
+<li>全联接full_join:结果保留左表和右表所有的键，及其对应的左表值字段、右表值字段，不存在的值被视为null。</li>
+<li>笛卡尔联接cross_join:"笛卡尔积"是指两个数据集的所有可能的组合。例如，对于某键的左表值字段包含A、B两行，右表值字段包含1、2两行，那么这个键的笛卡尔联接将产生四行：(A, 1)，(A, 2)，(B, 1)，(B, 2)。</li>
+</ol>
+<p>left_join和right_join本质相同仅仅是调换了左表，右表，因此polars仅仅实现了left_join。
+dataframe和lazyframe有不同的语法。</p>
+<h2 id="joinapi"><a class="header" href="#joinapi">joinAPI</a></h2>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>left_df.left_join(right_df,  left_on,right_on)
+left_df.inner_join(right_df,  left_on,right_on)
+left_df.full_join(right_df,  left_on,right_on)
+left_df.cross_join(right_df,  left_on,right_on)
+//用法：
+left.full_join(right, ["join_column_left"], ["join_column_right"])
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="数据透视pivots"><a class="header" href="#数据透视pivots">数据透视Pivots</a></h1>
+<p>数据透视Pivots
+数据透视是将数据进行长格式转换为宽格式，并应用聚合函数。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>//cargo.toml polars features中添加"pivot"。
+use polars_lazy::frame::pivot::pivot;
+    let out = pivot(&amp;df1, ["日期"], Some(["姓名","员工ID"]), Some(["值"]), false, None, None)?;
+    println!("{}\n{}",df1,out);
+
+<span class="boring">}</span></code></pre></pre>
+<p><img src="Rust-Polars-API-tutorial/zh_cn/res/Pivots.png" alt="Pivots" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="dataframe-api"><a class="header" href="#dataframe-api">Dataframe API</a></h1>
+<div class="table-wrapper"><table><thead><tr><th>API</th><th>含义</th></tr></thead><tbody>
+<tr><td>df.get_column_index(name: &amp;str) -&gt; Option&lt;usize&gt;</td><td>根据name，返回Series对应的索引</td></tr>
+<tr><td>df.column(name: &amp;str) -&gt; Result&lt;&amp;Series, PolarsError&gt;</td><td>根据列名返回Series引用</td></tr>
+<tr><td>df.select_at_idx(idx: usize) -&gt; Option&lt;&amp;Series&gt;</td><td>根据索引返回对应Series的引用</td></tr>
+<tr><td>df.select_by_range(range: R) -&gt; Result&lt;DataFrame, PolarsError&gt;</td><td>根据Range返回新的dataframe</td></tr>
+<tr><td>df.columns(&amp;self, names: I) -&gt; Result&lt;Vec&lt;&amp;Series&gt;, PolarsError&gt;</td><td>let sv: Vec&lt;&amp;Series&gt; = df.columns(["类别", "薪水"])?; 返回Vec&lt;&amp;Series&gt;</td></tr>
+<tr><td>df.select(&amp;self, selection: I) -&gt; Result&lt;DataFrame, PolarsError&gt;</td><td>df.select(["类别", "薪水"])返回新的DataFrame</td></tr>
+<tr><td>df.get_columns() -&gt; &amp;[Series]</td><td>返回所有列的切片</td></tr>
+<tr><td>df.take_columns() -&gt; Vec&lt;Series&gt;</td><td>获得所有列的所有权</td></tr>
+<tr><td>df.get_column_names() -&gt; Vec&lt;&amp;PlSmallStr&gt;</td><td>所有列名的引用</td></tr>
+<tr><td>df.get_column_names_owned(&amp;self) -&gt; Vec&lt;PlSmallStr&gt;</td><td>clone并返回所有列名，所有权。</td></tr>
+<tr><td>df.set_column_names (names: I)</td><td>设置列名</td></tr>
+<tr><td>df.dtypes() -&gt; Vec&lt;DataType&gt;</td><td>返回每个字段的类型</td></tr>
+<tr><td>df.filter(mask: &amp;ChunkedArray&lt;BooleanType&gt;) -&gt; Result&lt;DataFrame, PolarsError&gt;</td><td>mask的每一个元素代表一行，筛选出mask==true的行。</td></tr>
+<tr><td>df.take(indices: &amp;ChunkedArray&lt;UInt32Type&gt;) -&gt; Result&lt;DataFrame, PolarsError&gt;</td><td>返回指定索引的行。    let idx = IdxCa::new("idx".into(), [0, 1, 9]); df.take(&amp;idx)</td></tr>
+<tr><td>df.slice(offset: i64, length: usize) -&gt; DataFrame</td><td>返回切片指定的行。</td></tr>
+<tr><td>df.rename(oldname:&amp;str,newname:PlSmallStr) -&gt; Result&lt;&amp;mut DataFrame, PolarsError&gt;</td><td>重命名字段，df.rename("oldname", "newname".into())</td></tr>
+<tr><td>df.sort_in_place(by: impl IntoVec&lt;PlSmallStr&gt;,sort_options) -&gt; Result&lt;&amp;mut DataFrame, PolarsError&gt;</td><td>就地排序df，df就保存了排序结果，df.sort(["col1","col2"], Default::default())</td></tr>
+<tr><td>df.sort (by: impl IntoVec&lt;PlSmallStr&gt;,sort_options) -&gt; Result&lt;DataFrame, PolarsError&gt;</td><td>排序df，返回排序后新的Dataframe，原变量不变。</td></tr>
+<tr><td>df.replace(column: &amp;str,new_col: S) -&gt; Result&lt;&amp;mut DataFrame, PolarsError&gt;</td><td>替换指定column为新的Series。传入的new_col的name会被赋值为指定的名称</td></tr>
+<tr><td>df.with_column(new_col: IntoSeries)</td><td>df中添加一列，如果new_col的name已经存在，那么覆盖旧值</td></tr>
+<tr><td>df.insert_column(index: usize,column: S)</td><td>在指定索引处插入column</td></tr>
+<tr><td>df.hstack_mut(columns: &amp;[Series])</td><td>df中添加多列，改变df</td></tr>
+<tr><td>df.hstack(columns: &amp;[Series])</td><td>df中添加多列，返回新的dataframe</td></tr>
+<tr><td>df.get(idx) -&gt; Option&lt;Vec&lt;AnyValue&lt;'_&gt;&gt;&gt;</td><td>返回指定行。效率低下</td></tr>
+<tr><td>df.with_row_index_mut (name: PlSmallStr, offset: Option<u32>) -&gt; -&gt; &amp;mut DataFrame</td><td>在指定offset索引位置添加索引列，列名name。</td></tr>
+<tr><td>df.schema() -&gt; Schema&lt;DataType&gt;</td><td>获取Dataframe的结构，包含字段名和字段类型。</td></tr>
+<tr><td>df.fields() -&gt; Vec&lt;Field&gt;</td><td>返回字段信息</td></tr>
+<tr><td>df. estimated_size()</td><td>获取堆内存占用，字节为单位。</td></tr>
+<tr><td>df.explode(columns: I) -&gt; Result&lt;DataFrame, PolarsError&gt;</td><td>将list Series解包。</td></tr>
+</tbody></table>
+</div>
+<p>执行代码前</p>
+<p><img src="Rust-Polars-API-tutorial/zh_cn/image.png" alt="alt text" /></p>
+<p>执行
+<code>res.explode(["员工ID","业绩","rank"])?;</code>后list的内容被扁平化。</p>
+<p><img src="Rust-Polars-API-tutorial/zh_cn/image-1.png" alt="alt text" /></p>
+<div class="table-wrapper"><table><thead><tr><th><a></a></th><th><a></a></th></tr></thead><tbody>
+<tr><td>df.group_by(["col1","col2"…])</td><td>分组</td></tr>
+<tr><td>df.iter()</td><td>创建按列迭代器</td></tr>
+<tr><td>df.shape()</td><td>返回(height, width)</td></tr>
+<tr><td>df.height()</td><td>返回高度</td></tr>
+<tr><td>df.width()</td><td>返回宽度</td></tr>
+<tr><td>df.clear()</td><td>清空dataframe</td></tr>
+<tr><td>df.is_empty()-&gt;Dataframe是否为空</td><td></td></tr>
+<tr><td>df.vstack(&amp;self, other: &amp;DataFrame)</td><td>将两个dataframe对应字段连接到一起，返回新的dataframe。other和df的字段顺序、类型、列名必须严格一致。建议在完成vstack操作后调用DataFrame::align_chunks。</td></tr>
+<tr><td>df.vstack_mut() 同vstack，vstack_mut修改df本身，而不是返回新dataframe。</td><td></td></tr>
+<tr><td>df.pop()</td><td>弹出最后一个字段，并返回被弹出的Series</td></tr>
+<tr><td>df.drop_in_place(name: &amp;str)</td><td>弹出指定字段并返回被弹出的Series</td></tr>
+<tr><td>df.drop(name: &amp;str)</td><td>返回一个新的dataframe，其中指定的字段被删除。</td></tr>
+<tr><td>df.drop_many(names: I)</td><td>删除多个字段，返回一个新的dataframe，其中指定的字段被删除。</td></tr>
+<tr><td>df.split_at(offset: i64) -&gt; (DataFrame, DataFrame)</td><td>指定行索引处分割</td></tr>
+<tr><td>df.head(length: Option&lt;usize&gt;)</td><td>返回新的dataframe，包含df的头length行。</td></tr>
+<tr><td>df.tail(length: Option&lt;usize&gt;)</td><td>返回新的dataframe，包含df的最后length行。</td></tr>
+<tr><td>df.unique</td><td>清除重复行，无法保留原顺序</td></tr>
+<tr><td>df.unique_stable</td><td>清除重复行，保证原顺序，</td></tr>
+<tr><td>let mut df2=df1.unique_stable(Some(&amp;["Element".into(),"id".into()]), UniqueKeepStrategy::First, None)?;</td><td></td></tr>
+<tr><td>df.unique (None, UniqueKeepStrategy::First, None)?</td><td></td></tr>
+<tr><td>df.is_unique</td><td></td></tr>
+<tr><td>df.is_duplicated</td><td></td></tr>
+<tr><td>df.null_count()</td><td>返回新dataframe其中每个字段包含df对应字段的null值计数</td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="行迭代"><a class="header" href="#行迭代">行迭代</a></h1>
+<h2 id="推荐的行迭代方式"><a class="header" href="#推荐的行迭代方式">推荐的行迭代方式</a></h2>
+<p>通常在数据编程时明确知道字段类型，此时应使用<code>i8() i16() i32() i64() f32() f64() u8() u16() u32() u64() bool() str() binary() decimal() list()</code>这些向下转型函数，取出Series底层的<code>Chunkedarray&lt;T&gt;</code>引用。类型解析操作只是对底层的<code>Chunkedarray&lt;T&gt;</code>引用做了类型转换，并不会复制一份数据。另外你需要自己保证调用的解析函数和底层的T类型一致，否则会出现运行时错误。参见：<a href="Rust-Polars-API-tutorial/zh_cn/Series-%E9%81%8D%E5%8E%86%E5%80%BC.html#%E5%BA%95%E5%B1%82%E7%B1%BB%E5%9E%8B%E5%B7%B2%E7%9F%A5">遍历Series</a></p>
+<p>分别取出每个字段的元素迭代器后应使用<code>itertools::multizip</code>将多个迭代器绑定成一个，然后进行迭代。
+这里给出通过遍历Dataframe行，生成Person类型值的代码。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>    use polars::prelude::*;
+    use itertools::multizip;
+    #[derive(Debug)]
+    pub struct Person {
+        id: u32,
+        name: String,
+        age: u32,
+    }
+    let df = df!(
+        "id" =&gt; &amp;[1u32,2,3],
+        "name" =&gt; &amp;["John", "Jane", "Bobby"],
+        "age" =&gt; &amp;[32u32, 28, 45]
+    )
+    .unwrap();
+    //take_columns()将获取df的所有权，这不是必须的，df.columns可返回指定字段的引用。
+    let objects = df.take_columns();
+    //对字段进行向下转型，并生成迭代器
+    let id_ = objects[0].u32()?.iter();
+    let name_ = objects[1].str()?.iter();
+    let age_=objects[2].u32()?.iter();
+    //利用multizip同时迭代多个迭代器
+    let combined = multizip((id_, name_, age_));
+    let res: Vec&lt;_&gt;= combined.map(
+        |(a, b, c)|{
+            Person{
+                id:a.unwrap(),
+                name:b.unwrap().to_owned(),
+                age:c.unwrap(),
+            }
+        }).collect();
+       print!("{:?}",res);
+<span class="boring">}</span></code></pre></pre>
+<h2 id="不推荐的行迭代方式anyvalue"><a class="header" href="#不推荐的行迭代方式anyvalue">不推荐的行迭代方式，AnyValue</a></h2>
+<p>在Rust的Polars库中，<code>Series</code>是一个动态类型的数据结构，它可以包含任何类型的数据。当你使用df.get_row()方法获取一行时，数据会被逐个封装进AnyValue。Polars需要在运行时确定这个元素的实际类型。AnyValue是枚举，你需要用模式匹配将值取出。这个过程需要一些额外的计算，因此如果在循环中使用<code>df.get_row()</code>方法，这些额外的计算会累积起来，可能会显著降低代码的性能。</p>
+<p>这里给出通过df.get_row遍历Dataframe行，生成Person类型值的代码。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use polars::prelude::*;
+#[derive(Debug)]
+pub struct Person {
+    id: u32,
+    name: String,
+    age: u32,
+}
+let df = df!(
+    "id" =&gt; &amp;[1u32,2,3],
+    "name" =&gt; &amp;["John", "Jane", "Bobby"],
+    "age" =&gt; &amp;[32u32, 28, 45]
+ ).unwrap();
+
+    let personlist_iter=
+(0..df.height()).into_iter().map(
+    |x: usize|{
+        let mut row_ = df.get_row(x).unwrap();
+        let mut row_iter= row_.0.into_iter();
+        //通过模式匹配取出对应的值
+        if let (AnyValue::UInt32(id_),
+                 AnyValue::String(name_),
+                 AnyValue::UInt32(age_)) = 
+                (row_iter.next().unwrap(),
+                row_iter.next().unwrap(),
+                row_iter.next().unwrap()){
+                    return Person{
+                        id: id_,
+                         name: name_.to_string(),
+                         age: age_,
+                        };
+                    }else {
+                        panic!("bad value in df!");
+                    }
+ } );
+    let person_list: Vec&lt;Person&gt;=personlist_iter.collect::&lt;Vec&lt;_&gt;&gt;();
+println!("{:?}",person_list);
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="lazyframe操作"><a class="header" href="#lazyframe操作">Lazyframe操作</a></h1>
+<p>和Dataframe类似，Lazyframe代表一个即将成为Dataframe的抽象，Lazyframe中记录了数据来源，数据操作，数据的流向（生成Dataframe，或通过sink_csv写入磁盘）。lazyframe是并行的，而且是数据流，这对处理巨大数据集非常有用，巨大数据集可能无法完全载入内存，lazyframe能显著降低驻留内存。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="构造lazyframe"><a class="header" href="#构造lazyframe">构造Lazyframe</a></h1>
+<p>构造lazyframe可以通过<a href="Rust-Polars-API-tutorial/zh_cn/IO.html">IO章节</a>介绍的API从文件中载入。也可以调用dataframe的lazy()方法可以生成对应的lazyframe。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let lf=df.lazy();
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="索引lazyframe"><a class="header" href="#索引lazyframe">索引LazyFrame</a></h1>
+<p>LazyFrame的索引需要使用表达式语法。</p>
+<h2 id="列索引-1"><a class="header" href="#列索引-1">列索引</a></h2>
+<p>在select上下文中，可以使用col()表达式选择某些列。
+cols(["date", "logged_at"])，选中指定的names。col("*")或all() 表示选中所有列。exclude(["logged_at", "index"])表示排除指定列。*可用于通配符。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>//单列选择
+let out = types_df.clone().lazy().select([col("place")]).collect()?;
+
+//通配符选取，选中列名以a开始的所有列
+let out = types_df.clone().lazy().select([col("a*")]).collect()?;
+
+//正则表达式
+let out = types_df.clone().lazy().select([col("^.*(as|sa).*$")]).collect()?;
+
+//多个列名选取
+let out = types_df.clone().lazy().select([cols(["date", "logged_at"])]).collect()?;
+//数据类型选取,选择满足数据类型的所有列。
+let out = types_dfclone().lazy()
+    .select([dtype_cols([DataType::Int64, DataType::UInt32, DataType::Boolean]).n_unique()])
+.collect()?;
+// alias重命名字段
+let df_alias = df.clone().lazy()
+.select([ (col("nrs") + lit(5)).alias("nrs + 5"),
+(col("nrs") - lit(5)).alias("nrs - 5")])
+.collect()?;
+<span class="boring">}</span></code></pre></pre>
+<h2 id="行索引-1"><a class="header" href="#行索引-1">行索引</a></h2>
+<h3 id="调用lazyframe的方法"><a class="header" href="#调用lazyframe的方法">调用lazyframe的方法</a></h3>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let res : LazyFrame=types_df.clone().lazy().filter(col("id").gt_eq(lit(4)));
+// filter的参数为某个返回bool数组的表达式，值为false的行将被丢弃。
+println!("{}",res.collect()?);
+let res:LazyFrame=types_df.clone().lazy().slice(1, 2);//返回包含切片指定的行,offset为负数表示从末尾开始计数。.slice(-5,3) 表示从倒数第5个元素开始连续选择3个元素。
+<span class="boring">}</span></code></pre></pre>
+<h3 id="在select上下文中使用表达式进行行索引"><a class="header" href="#在select上下文中使用表达式进行行索引">在select上下文中，使用表达式进行行索引</a></h3>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let res:LazyFrame= employee_df.clone().lazy().select(
+		col("*").filter(
+			col("值").gt_eq(lit(4))
+			)
+		);
+let res:LazyFrame= employee_df.clone().lazy().select(col("*").slice(2,3));
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="表达式-1"><a class="header" href="#表达式-1">表达式</a></h1>
+<p>Polars 拥有一个强大的概念，称为表达式(Expr类型)。 Polars 表达式可以在各种上下文中使用，本质上是执行的是Fn(Series) -&gt; Series。Expr将 Series 作为输入并将 Series 作为输出。因此Expr可以链式调用。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>col("foo").sort().head(2)
+<span class="boring">}</span></code></pre></pre>
+<p>上述片段表示选择列 "foo" ，然后对此列进行排序，然后取排序输出的前两个值。表达式的强大之处在于每个表达式都会产生一个新的表达式，而且它们可以链式调用或保存入变量或作为参数传递。您可以通过polars 的执行上下文来运行表达式。在这里，我们在select上下文中运行两个表达式：</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>df.lazy()
+  .select([
+  col("foo").sort(Default::default()).head(None),
+  col("bar").filter(col("foo").eq(lit(1))).sum(),
+])
+.collect()?;
+<span class="boring">}</span></code></pre></pre>
+<p>每个独立的Polars表达式都可以在不需要任何其他表达式的结果或者不需要与其他表达式进行交互的情况下独立运行。因此，Polars可能会把表达式分配到不同的线程或者处理器上同时执行。
+Polars表达式是高度并行的。理解Polars表达式是学习Polars的关键步骤。</p>
+<h1 id="上下文-1"><a class="header" href="#上下文-1">上下文</a></h1>
+<p>能接受表达式的函数被称作上下文，包括以下三种：</p>
+<div class="table-wrapper"><table><thead><tr><th>含义</th><th>代码</th></tr></thead><tbody>
+<tr><td>选择</td><td>df.select([..])</td></tr>
+<tr><td>分组聚合</td><td>df.groupby(..).agg([..])</td></tr>
+<tr><td>横向堆叠(hstack) 或者增加列</td><td>df.with_columns([..])</td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="表达式-2"><a class="header" href="#表达式-2">表达式</a></h1>
+<p>Polars 拥有一个强大的概念，称为表达式(Expr类型)。 Polars 表达式可以在各种上下文中使用，本质上是执行的是Fn(Series) -&gt; Series。Expr将 Series 作为输入并将 Series 作为输出。因此Expr可以链式调用。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>col("foo").sort().head(2)
+<span class="boring">}</span></code></pre></pre>
+<p>上述片段表示选择列 "foo" ，然后对此列进行排序，然后取排序输出的前两个值。表达式的强大之处在于每个表达式都会产生一个新的表达式，而且它们可以链式调用或保存入变量或作为参数传递。您可以通过polars 的执行上下文来运行表达式。在这里，我们在select上下文中运行两个表达式：</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>df.lazy()
+  .select([
+  col("foo").sort(Default::default()).head(None),
+  col("bar").filter(col("foo").eq(lit(1))).sum(),
+])
+.collect()?;
+<span class="boring">}</span></code></pre></pre>
+<p>每个独立的Polars表达式都可以在不需要任何其他表达式的结果或者不需要与其他表达式进行交互的情况下独立运行。因此，Polars可能会把表达式分配到不同的线程或者处理器上同时执行。
+Polars表达式是高度并行的。理解Polars表达式是学习Polars的关键步骤。详见：<a href="Rust-Polars-API-tutorial/zh_cn/%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8A%E4%B8%8B%E6%96%87.html">LazyFrame-表达式和上下文</a></p>
+<h1 id="上下文-2"><a class="header" href="#上下文-2">上下文</a></h1>
+<p>能接受表达式的函数被称作上下文，包括以下三种：</p>
+<div class="table-wrapper"><table><thead><tr><th>含义</th><th>代码</th></tr></thead><tbody>
+<tr><td>选择</td><td>df.select([..])</td></tr>
+<tr><td>分组聚合</td><td>df.groupby(..).agg([..])</td></tr>
+<tr><td>横向堆叠(hstack) 或者增加列</td><td>df.with_columns([..])</td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="基本运算"><a class="header" href="#基本运算">基本运算</a></h1>
+<p>表达式支持基本运算  + - * / &lt; &gt;。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let df_numerical = df
+    .clone()
+    .lazy()
+    .select([
+        (col("nrs") + lit(5)).alias("nrs + 5"),
+        (col("nrs") - lit(5)).alias("nrs - 5"),
+        (col("nrs") * col("random")).alias("nrs * random"),
+        (col("nrs") / col("random")).alias("nrs / random"),
+    ])
+    .collect()?;
+println!("{}", &amp;df_numerical);
+<span class="boring">}</span></code></pre></pre>
+<p>逻辑比较、三角函数、聚合等等运算见<a href="Rust-Polars-API-tutorial/zh_cn/%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%96%B9%E6%B3%95.html">表达式方法</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="列选择"><a class="header" href="#列选择">列选择</a></h1>
+<p>在select上下文中，可以使用col()表达式选择某些列。
+col("*")或all() 表示选中所有列。exclude(["logged_at", "index"])表示排除指定列。*可用于通配符。
+cols(["date", "logged_at"])，选中指定的names。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>//单列选择
+let out = df.clone().lazy().select([col("place")]).collect()?;
+
+//通配符选取，选中列名以a开始的所有列
+let out = df.clone().lazy().select([col("a*")]).collect()?;
+
+//正则表达式
+let out = df.clone().lazy().select([col("^.*(as|sa).*$")]).collect()?;
+
+//多个列名选取
+let out = df.clone().lazy().select([cols(["date", "logged_at"])]).collect()?;
+//数据类型选取,选择满足数据类型的所有列。
+let out = df.clone().lazy()
+    .select([dtype_cols([DataType::Int64, DataType::UInt32, DataType::Boolean]).n_unique()])
+.collect()?;
+
+<span class="boring">}</span></code></pre></pre>
+<p>本节数据集生成</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use chrono::prelude::*;
+use polars::time::*;
+
+let date_df = df!(
+    "id" =&gt; &amp;[9, 4, 2],
+    "place" =&gt; &amp;["Mars", "Earth", "Saturn"],
+    "date" =&gt; date_range("date",
+NaiveDate::from_ymd_opt(2022, 1, 1).unwrap().and_hms_opt(0, 0, 0).unwrap(),
+NaiveDate::from_ymd_opt(2022, 1, 3).unwrap().and_hms_opt(0, 0, 0).unwrap(),
+Duration::parse("1d"),ClosedWindow::Both, TimeUnit::Milliseconds, None)?,
+    "sales" =&gt; &amp;[33.4, 2142134.1, 44.7],
+    "has_people" =&gt; &amp;[false, true, false],
+    "logged_at" =&gt; date_range("logged_at",
+    NaiveDate::from_ymd_opt(2022, 1, 1).unwrap().and_hms_opt(0, 0, 0).unwrap(), NaiveDate::from_ymd_opt(2022, 1, 1).unwrap().and_hms_opt(0, 0, 2).unwrap(), Duration::parse("1s"),ClosedWindow::Both, TimeUnit::Milliseconds, None)?,
+    )?
+    .with_row_index("index", None)?;
+println!("{}", &amp;df);
+<span class="boring">}</span></code></pre></pre>
+<p><img src="Rust-Polars-API-tutorial/zh_cn/image-2.png" alt="alt text" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="重命名alias"><a class="header" href="#重命名alias">重命名alias</a></h1>
+<h2 id="alias"><a class="header" href="#alias">alias</a></h2>
+<p>alias用于更改单个字段名</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let df_alias = df.clone().lazy()
+.select([ (col("nrs") + lit(5)).alias("nrs + 5"),
+(col("nrs") - lit(5)).alias("nrs - 5")])
+.collect()?;
+<span class="boring">}</span></code></pre></pre>
+<h2 id="name"><a class="header" href="#name">name</a></h2>
+<p>name()返回ExprNameNameSpace，一种可以操作多个字段名的类型。</p>
+<div class="table-wrapper"><table><thead><tr><th>方法列表</th><th>含义</th></tr></thead><tbody>
+<tr><td>keep()</td><td>使用原始字段名。即使利用alias设置了字段名，keep将确保使用原始字段名。<br><code>col("*").alias("foo").name().keep()</code></td></tr>
+<tr><td>map(F)</td><td>使用自定义函数返回字段名，输入参数为原始字段名。<br>F满足<code>Fn(&amp;PlSmallStr) -&gt; Result&lt;PlSmallStr, PolarsError&gt;</code></td></tr>
+<tr><td>prefix(prefix: &amp;str)</td><td>新字段名为原始字段名加前缀，prefix和suffix无法同时使用。此时考虑使用map应用自定义函数</td></tr>
+<tr><td>suffix(prefix: &amp;str)</td><td>新字段名为原始字段名加后缀.prefix和suffix无法同时使用。此时考虑使用map应用自定义函数</td></tr>
+<tr><td>to_lowercase()</td><td>小写字母</td></tr>
+<tr><td>to_uppercase()</td><td>大写字母</td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="条件运算-when-then-otherwise"><a class="header" href="#条件运算-when-then-otherwise">条件运算 when then otherwise</a></h1>
+<p>when语句能根据输入参数的不同返回不同值。</p>
+<p>我们使用when表达式根据不同条件返回不同结果。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use polars::prelude::*;
+let df = df!( "id" =&gt; &amp;[1u32,2,3],
+"value" =&gt; ["one","two","three"]).unwrap();
+let res = df.lazy().select([col("id"),
+when(col("id").eq(lit(1u32)))
+        .then(lit("一"))//映射为字面值
+        .when(col("id").eq(lit(2u32))) 
+        .then(col("value"))  //映射为另一个字段的值
+    .when(col("id")==lit(3u32)) //务必使用表达式方法进行比较，而不是基础运算符。 基础运算符会导致比较为false。基础运算符会导致Rust编译器比较两个表达式对象的底层内存，而不是由Polars表达式执行器执行比较。
+        .then(lit("三"))
+        .otherwise(lit("error")).alias("id_cn")
+    ]).collect();
+println!("{:?}",res);
+<span class="boring">}</span></code></pre></pre>
+<p>Output</p>
+<pre><code class="language-bash">shape: (3, 2)
+┌─────┬───────┐
+│ id  ┆ id_cn │
+│ --- ┆ ---   │
+│ u32 ┆ str   │
+╞═════╪═══════╡
+│ 1   ┆ 一    │
+│ 2   ┆ two   │
+│ 3   ┆ error │
+└─────┴───────┘
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="表达式方法"><a class="header" href="#表达式方法">表达式方法</a></h1>
+<div class="table-wrapper"><table><thead><tr><th>方法</th><th>含义</th></tr></thead><tbody>
+<tr><td>.alias(name:&amp;str)</td><td>重命名column</td></tr>
+<tr><td>.floor_div(rhs: Expr)</td><td>整除rhs，即只返回整数部分，丢弃小数部分。</td></tr>
+<tr><td>.pow(e)</td><td>指数函数，e是幂</td></tr>
+<tr><td>.sqrt()</td><td>平方根</td></tr>
+<tr><td>.cbrt()</td><td>立方根</td></tr>
+<tr><td>.cos() .sin() .cot() .tan() .arccos() .arcsin() .arctan() .arctan2() .cosh() .sinh() .tanh() .arccosh() .arcsinh() .arctanh()</td><td>三角函数</td></tr>
+<tr><td>.degrees()</td><td>弧度转成角度</td></tr>
+<tr><td>.radians()</td><td>角度转成弧度</td></tr>
+<tr><td>.shuffle(seed: Option&lt;u64&gt;)</td><td>随机乱序，seed随机种子。</td></tr>
+<tr><td>.sample_n(n: Expr, with_replacement: bool, shuffle: bool, seed: Option&lt;u64&gt;) -&gt; Expr</td><td>随机采样n个元素，with_replacement=T表示有放回采样 。shuffle是否采样后乱序，seed随机种子;<sup class="footnote-reference"><a href="#有放回采样">1</a></sup></td></tr>
+<tr><td>.std(ddof:u8)</td><td>计算标准差，ddof是自由度<sup class="footnote-reference"><a href="#自由度">2</a></sup> 。</td></tr>
+<tr><td>.var(ddof:u8)</td><td>计算方差，ddof是自由度偏移</td></tr>
+<tr><td>.min()</td><td>计算最小值，series包含nan则返回nan</td></tr>
+<tr><td>.max()</td><td>最大值，series包含nan则返回nan</td></tr>
+<tr><td>.nan_min()</td><td>忽略nan，最小值</td></tr>
+<tr><td>.nan_max()</td><td>忽略nan，最大值</td></tr>
+<tr><td>.mean()</td><td>算数均值</td></tr>
+<tr><td>.median()</td><td>中位数</td></tr>
+<tr><td>.sum()</td><td>算数和</td></tr>
+<tr><td>.eq(E)</td><td>条件运算==，但None==None返回Null。参见话题Null和None</td></tr>
+<tr><td>.eq_missing(E)</td><td>条件运算==，但None==None 返回true</td></tr>
+<tr><td>.neq(E)</td><td>不等于</td></tr>
+<tr><td>.neq_missing(E)</td><td>不等于，但None和None 认为相等</td></tr>
+<tr><td>.lt(E )</td><td>条件运算&lt;</td></tr>
+<tr><td>.gt(E )</td><td>条件运算&gt;</td></tr>
+<tr><td>.gt_eq(E )</td><td>条件运算&gt;=</td></tr>
+<tr><td>.lt_eq(E )</td><td>条件运算&lt;=</td></tr>
+<tr><td>.not(E )</td><td>条件运算not</td></tr>
+<tr><td>.is_null()/.is_not_null()</td><td>条件运算，是否是null</td></tr>
+<tr><td>.drop_nulls()/.drop_nans()</td><td>丢弃series中的null值或NaN值</td></tr>
+<tr><td>.n_unique()</td><td>统计非重复项数量</td></tr>
+<tr><td>.first()</td><td>返回第一个元素</td></tr>
+<tr><td>.last()</td><td>返回最后一个元素</td></tr>
+<tr><td>.head(length:Option&lt;usize&gt;)</td><td>开头几个元素</td></tr>
+<tr><td>.tail(length:Option&lt;usize&gt;)</td><td>结束几个元素</td></tr>
+<tr><td>.implode()</td><td>将Series转换成List。</td></tr>
+<tr><td>.explode()</td><td>将List解包</td></tr>
+<tr><td>.agg_groups()</td><td>返回组的索引列表，参考：agg_groups示例，Page10</td></tr>
+<tr><td>.filter(predicate:E)</td><td>predicate为返回bool数组的表达式</td></tr>
+<tr><td>.slice(offset:Expr,length:Expr)</td><td>根据offset和length描述的切片进行索引</td></tr>
+<tr><td>.append(other:Expr,upcast:bool)</td><td>将other的series追加self。upcast是否向上转型，自动转型到容量更大的数据类型。</td></tr>
+<tr><td>.unique()</td><td>去除重复值，但无法保证原有的顺序</td></tr>
+<tr><td>.unique_stable</td><td>去除重复值，但保留原有顺序，比.unique()更消耗资源.</td></tr>
+<tr><td>.arg_unique()</td><td>返回第一个唯一值索引</td></tr>
+<tr><td>.arg_min()</td><td>返回最小值索引</td></tr>
+<tr><td>.name()</td><td>返回ExprNameNameSpace，一种可以操作多个字段名的类型。</td></tr>
+</tbody></table>
+</div>
+<div class="footnote-definition" id="有放回采样"><sup class="footnote-definition-label">1</sup>
+<p>如果" with_replacement"为True，那么每次采样都是独立的，一个样本被选中后仍然可以在后续的采样中被选中。这被称为"有放回的抽样"。如果" with_replacement"为False，那么被选中的元素会从样本池中移除，不会被再次采样。这被称为"无放回的抽样"。</p>
+</div>
+<div class="footnote-definition" id="自由度"><sup class="footnote-definition-label">2</sup>
+<p>在统计学中，计算样本标准差时通常使用的自由度是n-1（其中n是样本大小）。这被称为贝塞尔（Bessel's）校正，用于修正偏差，使样本标准差更接近总体标准差。这是因为我们在标准差计算过程中使用了样本的平均值，这使得所有的”差值”都不是完全独立的。当<code>ddof</code>为1时（这是默认值），<code>.std()</code>方法会使用<code>n-1</code>作为分母来计算标准差，其中<code>n</code>是样本数量。如果你将<code>ddof</code>设置为0，<code>.std()</code>方法会使用<code>n</code>作为分母来计算标准差。但是这个值可能会低估总体标准差。</p>
+</div>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="字符串操作"><a class="header" href="#字符串操作">字符串操作</a></h1>
+<p>数据处理中的字符串操作主要涉及字符串切割和字符串提取：将字符串分割到多行，或将字符串的正则表达式捕获分割到多列。
+在对表达式进行向下转型<code>col("str").str()</code>后就可以进行字符串运算。</p>
+<h2 id="字符串分割到多行"><a class="header" href="#字符串分割到多行">字符串分割到多行</a></h2>
+<p>以下dataframe中每个team的成员信息被用字符串储存，我们的第一个任务是将字符串分割到多行，以换行符为分隔符。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span>
+<span class="boring">fn main() {
+</span>let df_str = df!{"items" =&gt; ["Jada; location:2759 Fairway Drive; Email:Jada;@gmail;.com\nGraceland; location:6 Greenleaf Dr; Email:Graceland@gmail.com",
+"Ives; location:2887 Andell Road; Email:Ives@gmail.com\nMakana; location:1521 Winifred Way; Email:Makana@gmail.com\nNatsuki; location:4416 Golf Course Drive; Email:Natsuki@gmail.com",
+"Pope; location:345 Edgewood Avenue; Email:Pope@gmail.com",
+"Oaklynn; location:3017 Cherry Camp Road; Email:Oaklynn@gmail.com",
+"Tysheenia; location:1616 Smith Street; Email:Tysheenia@gmail.com\nZenda; location:4416 Golf Course Drive; Email:Zenda@gmail.com"],
+"teamID" =&gt; ["team01","team02","team03","team04","team05"]}?;
+let df_res = df_str.lazy().select([col("teamID"),col("items").str().split(lit("\n"))]).collect()?;
+println!("{:?}",&amp;df_res);
+<span class="boring">}</span></code></pre></pre>
+<p>Output:</p>
+<pre><code class="language-term">shape: (5, 2)
+┌────────┬─────────────────────────────────┐
+│ teamID ┆ items                           │
+│ ---    ┆ ---                             │
+│ str    ┆ list[str]                       │
+╞════════╪═════════════════════════════════╡
+│ team01 ┆ ["Jada; location:2759 Fairway … │
+│ team02 ┆ ["Ives; location:2887 Andell R… │
+│ team03 ┆ ["Pope; location:345 Edgewood … │
+│ team04 ┆ ["Oaklynn; location:3017 Cherr… │
+│ team05 ┆ ["Tysheenia; location:1616 Smi… │
+└────────┴─────────────────────────────────┘
+</code></pre>
+<p>字符串分割后的值被包裹进List，调用explode(["items"],将items字段解包到多行。</p>
+<p><a name="df_lines"></a></p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let df_lines=df_res.explode(["items"])?;
+println!("{:?}",&amp;df_lines);
+<span class="boring">}</span></code></pre></pre>
+<p>Output</p>
+<pre><code class="language-term">shape: (9, 2)
+┌────────┬─────────────────────────────────┐
+│ teamID ┆ items                           │
+│ ---    ┆ ---                             │
+│ str    ┆ str                             │
+╞════════╪═════════════════════════════════╡
+│ team01 ┆ Jada; location:2759 Fairway Dr… │
+│ team01 ┆ Graceland; location:6 Greenlea… │
+│ team02 ┆ Ives; location:2887 Andell Roa… │
+│ team02 ┆ Makana; location:1521 Winifred… │
+│ team02 ┆ Natsuki; location:4416 Golf Co… │
+│ team03 ┆ Pope; location:345 Edgewood Av… │
+│ team04 ┆ Oaklynn; location:3017 Cherry … │
+│ team05 ┆ Tysheenia; location:1616 Smith… │
+│ team05 ┆ Zenda; location:4416 Golf Cour… │
+└────────┴─────────────────────────────────┘
+</code></pre>
+<h2 id="分割到多列"><a class="header" href="#分割到多列">分割到多列</a></h2>
+<p>与split类似split_exact()将字符串分割后保存进 DataType::Struct中，再经过unnest()解包，可以分割到多个字段。
+split_exact(lit(";"),3) ,第一个参数为分隔符，第二个参数为字段数量。精确返回固定数量的字段，如果分割字符串后数量不够，产生null值。过多则直接丢弃多余字段。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let df_structed = df_lines.lazy().select([
+    col("teamID"),
+    col("items").str().split_exact(lit(";"),3)
+]).collect()?;
+println!("df_structed\n{:?}",&amp;df_structed);
+<span class="boring">}</span></code></pre></pre>
+<p>注意返回的items的类型为struct类型。
+Output</p>
+<pre><code class="language-term">df_structed
+shape: (9, 2)
+┌────────┬─────────────────────────────────┐
+│ teamID ┆ items                           │
+│ ---    ┆ ---                             │
+│ str    ┆ struct[4]                       │
+╞════════╪═════════════════════════════════╡
+│ team01 ┆ {"Jada"," location:2759 Fairwa… │
+│ team01 ┆ {"Graceland"," location:6 Gree… │
+│ team02 ┆ {"Ives"," location:2887 Andell… │
+│ team02 ┆ {"Makana"," location:1521 Wini… │
+│ team02 ┆ {"Natsuki"," location:4416 Gol… │
+│ team03 ┆ {"Pope"," location:345 Edgewoo… │
+│ team04 ┆ {"Oaklynn"," location:3017 Che… │
+│ team05 ┆ {"Tysheenia"," location:1616 S… │
+│ team05 ┆ {"Zenda"," location:4416 Golf … │
+└────────┴─────────────────────────────────┘
+</code></pre>
+<p>应用unnest解包struct到多个字段</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let df_unnest = df_structed.unnest(["items"])?;
+println!("df_unnest:\n{:?}",&amp;df_unnest);
+<span class="boring">}</span></code></pre></pre>
+<p>为了演示字段数量的作用，我们将第一个df_str items字段的第一个元素多增加了几个分号。所以导致第一个元素的 field_3字段不为null。
+Output</p>
+<pre><code class="language-term">df_unnest:
+shape: (9, 5)
+┌────────┬───────────┬─────────────────────────────────┬────────────────────────────┬─────────┐
+│ teamID ┆ field_0   ┆ field_1                         ┆ field_2                    ┆ field_3 │
+│ ---    ┆ ---       ┆ ---                             ┆ ---                        ┆ ---     │
+│ str    ┆ str       ┆ str                             ┆ str                        ┆ str     │
+╞════════╪═══════════╪═════════════════════════════════╪════════════════════════════╪═════════╡
+│ team01 ┆ Jada      ┆  location:2759 Fairway Drive    ┆  Email:Jada                ┆ @gmail  │
+│ team01 ┆ Graceland ┆  location:6 Greenleaf Dr        ┆  Email:Graceland@gmail.com ┆ null    │
+│ team02 ┆ Ives      ┆  location:2887 Andell Road      ┆  Email:Ives@gmail.com      ┆ null    │
+│ team02 ┆ Makana    ┆  location:1521 Winifred Way     ┆  Email:Makana@gmail.com    ┆ null    │
+│ team02 ┆ Natsuki   ┆  location:4416 Golf Course Dri… ┆  Email:Natsuki@gmail.com   ┆ null    │
+│ team03 ┆ Pope      ┆  location:345 Edgewood Avenue   ┆  Email:Pope@gmail.com      ┆ null    │
+│ team04 ┆ Oaklynn   ┆  location:3017 Cherry Camp Roa… ┆  Email:Oaklynn@gmail.com   ┆ null    │
+│ team05 ┆ Tysheenia ┆  location:1616 Smith Street     ┆  Email:Tysheenia@gmail.com ┆ null    │
+│ team05 ┆ Zenda     ┆  location:4416 Golf Course Dri… ┆  Email:Zenda@gmail.com     ┆ null    │
+└────────┴───────────┴─────────────────────────────────┴────────────────────────────┴─────────┘
+</code></pre>
+<h2 id="正则表达式捕获"><a class="header" href="#正则表达式捕获">正则表达式捕获</a></h2>
+<p>有时候简单的split并不能满足业务需求。复杂的工作需要正则表达式捕获才能完成。
+主要涉及表达式extract方法:</p>
+<ul>
+<li>extract(self, pat: Expr, group_index: usize)    正则pat匹配-后，返回group_index索引处捕获的值。</li>
+<li>extract_groups(self, pat: &amp;str) 正则pat匹配后，返回所有捕获</li>
+</ul>
+<p>我们在<a href="Rust-Polars-API-tutorial/zh_cn/%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C.html#df_lines">df_lines</a>的基础上继续执行工作。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span>
+<span class="boring">fn main() {
+</span>//因为表达式太长，我们自定义一个表达式
+let ex = |index| -&gt; Expr{
+    //这里使用正则表达式捕获三个字段
+    col("items").str().extract(lit(r#"^([A-Z a-z]*); location:(.*); Email:(.*)$"#), index)
+};
+
+let df_extract=df_lines.lazy().select([
+    col("teamID"),
+    ex(0).alias("source"), // 0 捕获为全匹配字符串
+    ex(1).alias("Name"),
+    ex(2).alias("location"),
+    ex(3).alias("email"),    
+    ]).collect()?;
+println!("{:?}",&amp;df_extract);
+
+<span class="boring">}</span></code></pre></pre>
+<p>Output</p>
+<pre><code class="language-term">shape: (9, 5)
+┌────────┬─────────────────────────────────┬───────────┬────────────────────────┬─────────────────────┐
+│ teamID ┆ source                          ┆ Name      ┆ location               ┆ email               │
+│ ---    ┆ ---                             ┆ ---       ┆ ---                    ┆ ---                 │
+│ str    ┆ str                             ┆ str       ┆ str                    ┆ str                 │
+╞════════╪═════════════════════════════════╪═══════════╪════════════════════════╪═════════════════════╡
+│ team01 ┆ Jada; location:2759 Fairway Dr… ┆ Jada      ┆ 2759 Fairway Drive     ┆ Jada;@gmail;.com    │
+│ team01 ┆ Graceland; location:6 Greenlea… ┆ Graceland ┆ 6 Greenleaf Dr         ┆ Graceland@gmail.com │
+│ team02 ┆ Ives; location:2887 Andell Roa… ┆ Ives      ┆ 2887 Andell Road       ┆ Ives@gmail.com      │
+│ team02 ┆ Makana; location:1521 Winifred… ┆ Makana    ┆ 1521 Winifred Way      ┆ Makana@gmail.com    │
+│ team02 ┆ Natsuki; location:4416 Golf Co… ┆ Natsuki   ┆ 4416 Golf Course Drive ┆ Natsuki@gmail.com   │
+│ team03 ┆ Pope; location:345 Edgewood Av… ┆ Pope      ┆ 345 Edgewood Avenue    ┆ Pope@gmail.com      │
+│ team04 ┆ Oaklynn; location:3017 Cherry … ┆ Oaklynn   ┆ 3017 Cherry Camp Road  ┆ Oaklynn@gmail.com   │
+│ team05 ┆ Tysheenia; location:1616 Smith… ┆ Tysheenia ┆ 1616 Smith Street      ┆ Tysheenia@gmail.com │
+│ team05 ┆ Zenda; location:4416 Golf Cour… ┆ Zenda     ┆ 4416 Golf Course Drive ┆ Zenda@gmail.com     │
+└────────┴─────────────────────────────────┴───────────┴────────────────────────┴─────────────────────┘
+</code></pre>
+<h2 id="字符串api"><a class="header" href="#字符串api">字符串API</a></h2>
+<p>Self为Expr.str()返回值</p>
+<div class="table-wrapper"><table><thead><tr><th>API</th><th>含义</th></tr></thead><tbody>
+<tr><td>contains_literal(self, pat: Expr)</td><td>是否包含字符串字面量</td></tr>
+<tr><td>contains(self, pat: Expr, strict: bool)</td><td>是否匹配正则表达式。如果pat是无效正则表达式，strict==true时返回错误。strict==false 则无效的正则表达式将简单评估为false。</td></tr>
+<tr><td>contains_any(self, patterns: Expr, ascii_case_insensitive: bool)</td><td>使用aho-corasick算法<sup class="footnote-reference"><a href="#aho-corasick">1</a></sup>匹配多个固定字符串。<br>pattern应该这样构建<code>let pat = lit(Series::new("pat".into(),["fo","ba","str3"]));</code></td></tr>
+<tr><td>replace_many(self,patterns: Expr, replace_with: Expr,  ascii_case_insensitive: bool)</td><td>使用aho-corasick算法替换多个字符串</td></tr>
+<tr><td>ends_with(self, sub: Expr)</td><td>是否以sub字符串结束</td></tr>
+<tr><td>starts_with(self, sub: Expr)</td><td>是否以sub字符串起始</td></tr>
+<tr><td>hex_encode(self)</td><td>字符串编码为十六进制字符串</td></tr>
+<tr><td>hex_decode(self, strict: bool)</td><td>十六进制解码成字符串</td></tr>
+<tr><td>base64_encode(self)</td><td>字符用base64编码</td></tr>
+<tr><td>base64_decode(self, strict: bool)</td><td>base64解码为字符串</td></tr>
+<tr><td>extract(self, pat: Expr, group_index: usize)</td><td>提取正则表达式捕获，见<a href="Rust-Polars-API-tutorial/zh_cn/%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C.html#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%8D%95%E8%8E%B7">正则表达式捕获</a></td></tr>
+<tr><td>find_literal(self, pat: Expr)</td><td>查询字面量所在的索引</td></tr>
+<tr><td>find(self, pat: Expr, strict: bool)</td><td>搜索正则表达式所在的索引</td></tr>
+<tr><td>count_matches(self, pat: Expr, literal: bool)</td><td>返回正则表达式成功匹配的计数</td></tr>
+<tr><td>strptime(self,dtype: DataType, options: StrptimeOptions,ambiguous: Expr)</td><td>解析字符串为Date/Datetime/Time</td></tr>
+<tr><td>to_datetime</td><td>解析字符串为datetime</td></tr>
+<tr><td>to_time(self, options: StrptimeOptions)</td><td>解析字符串为time</td></tr>
+<tr><td>join(self, delimiter: &amp;str, ignore_nulls: bool)</td><td>将字段里的字符串连接成一个字符串，用delimiter作为分割</td></tr>
+<tr><td>split(self, by: Expr)</td><td>分割字符串到List&lt;String&gt;。可以使用explode将结果拆到不同行。<a href="Rust-Polars-API-tutorial/zh_cn/%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C.html#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%88%86%E5%89%B2%E5%88%B0%E5%A4%9A%E8%A1%8C">字符串分割到多行</a></td></tr>
+<tr><td>split_inclusive(self, by: Expr)</td><td>同split但分隔符保留</td></tr>
+<tr><td>split_exact(self, by: Expr, n: usize)</td><td>分割到Struce，可以用unnest解包到多个字段。<a href="Rust-Polars-API-tutorial/zh_cn/%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C.html#%E5%88%86%E5%89%B2%E5%88%B0%E5%A4%9A%E5%88%97">分割到多列</a></td></tr>
+<tr><td>strip_prefix(self, prefix: Expr)</td><td>删除前缀</td></tr>
+<tr><td>strip_suffix(self, suffix: Expr)</td><td>删除后缀</td></tr>
+<tr><td>to_lowercase(self)</td><td>全部小写</td></tr>
+<tr><td>to_uppercase(self)</td><td>全部大写</td></tr>
+<tr><td>to_integer(self, base: Expr, strict: bool)</td><td>按照指定的进制解析为整数</td></tr>
+<tr><td>len_bytes(self)</td><td>字节计数</td></tr>
+<tr><td>len_chars(self)</td><td>字符计数</td></tr>
+<tr><td>slice(self, offset: Expr, length: Expr)</td><td>返回切片所引用的子字符串</td></tr>
+<tr><td>head(self, n: Expr)</td><td>返回前n个字符</td></tr>
+<tr><td>tail(self, n: Expr)</td><td>返回最后n个字符</td></tr>
+</tbody></table>
+</div>
+<div class="footnote-definition" id="aho-corasick"><sup class="footnote-definition-label">1</sup>
+<p>Aho-Corasick 算法的模式不是正则表达式，而是多个固定字符串的集合。这个算法用于多模式匹配，即在一段文本中查找多个固定的模式（字符串）出现的位置。Aho-Corasick 算法的核心思想是通过构建一个自动机来同时匹配多个模式字符串。当输入的文本流过自动机时，它能够高效地识别出所有匹配的模式。</p>
+</div>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="lazyframe分组和聚合"><a class="header" href="#lazyframe分组和聚合">Lazyframe分组和聚合</a></h1>
+<p>Lazyframe的表达式经过精心设计通常情况下建议优先使用LazyFrame的分组和聚合API。</p>
+<div class="table-wrapper"><table><thead><tr><th>术语</th><th>含义</th></tr></thead><tbody>
+<tr><td>简单聚合</td><td>输入若干数据，根据某种算法返回一个值。例如：min，max，mean,head,tail等等都属于聚合函数。</td></tr>
+<tr><td>分组</td><td>顾名思义，将数据根据指定字段进行分组，后续的聚合操作将对每个组调用一次聚合函数。</td></tr>
+</tbody></table>
+</div>
+<h2 id="实战1-1"><a class="header" href="#实战1-1">实战1</a></h2>
+<p>观察示例数据employee_df，其中保存了3位员工近4个月的业绩。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let mut employee_df: DataFrame = df!("姓名"=&gt; ["老李", "老李", "老李", "老李", "老张", "老张", "老张", "老张", "老王", "老王", "老王", "老王"],
+"员工ID"=&gt; ["员工01", "员工01", "员工01", "员工01", "员工02", "员工02", "员工02", "员工02", "员工03", "员工03", "员工03", "员工03"],
+"日期"=&gt; ["8月", "9月", "10月", "11月", "8月", "9月", "10月", "11月", "8月", "9月", "10月", "11月"],
+"业绩"=&gt; [83, 24, 86, 74, 89, 59, 48, 79, 51, 71, 44, 90])?;
+<span class="boring">}</span></code></pre></pre>
+<p>现在的需求是计算每个人所有月份业绩平均值，并且计算出每个人业绩大于70的次数。数据需要根据<code>员工ID</code>进行分组然后聚合。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>   let res = employee_df.lazy().group_by(["员工ID","姓名"]) //group_by执行后可能会打乱行序，group_by_stable可以保留原行序。
+            .agg([
+                col("业绩").mean().alias("平均业绩"),
+                col("业绩").gt(70).cast(DataType::Int32).sum().alias("大于70次数")
+            ]).collect()?;
+        
+    println!("{}",res);
+<span class="boring">}</span></code></pre></pre>
+<p>polars通过表达式提供的聚合函数能完成简单聚合。
+<img src="Rust-Polars-API-tutorial/zh_cn/res/%E7%AE%80%E5%8D%95%E8%81%9A%E5%90%88%E6%BC%94%E7%A4%BA.png" alt="简单聚合演示" /></p>
+<h2 id="实战2-1"><a class="header" href="#实战2-1">实战2</a></h2>
+<p>计算每个月份获得业务第一名，第二名的人及其对应业绩。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>    let res = employee_df.lazy().group_by(["日期"]) //group_by执行后可能会打乱行序，group_by_stable可以保留原行序。
+    .agg([
+        col("员工ID"),
+        col("业绩"),
+        col("业绩").rank(RankOptions::default(),None).alias("rank"),
+    ]) //step 1
+    .explode([col("员工ID"),col("业绩"),col("rank")]) //step2
+    .filter(col("rank").gt_eq(2))  //step3
+    .collect()?
+    ;
+<span class="boring">}</span></code></pre></pre>
+<h3 id="step1-1"><a class="header" href="#step1-1">Step1</a></h3>
+<pre><code class="language-bash">shape: (4, 4)
+┌──────┬────────────────────────────────┬──────────────┬───────────┐
+│ 日期 │ 员工ID                         ┆ 业绩          ┆ rank      │
+│ ---  ┆ ---                            ┆ ---          ┆ ---       │
+│ str  ┆ list[str]                      ┆ list[i32]    ┆ list[u32] │
+╞══════╪════════════════════════════════╪══════════════╪═══════════╡
+│ 10月 ┆ ["员工01", "员工02", "员工03"]  ┆ [86, 48, 44] ┆ [3, 2, 1] │
+│ 8月  ┆ ["员工01", "员工02", "员工03"]  ┆ [83, 89, 51] ┆ [2, 3, 1] │
+│ 11月 ┆ ["员工01", "员工02", "员工03"]  ┆ [74, 79, 90] ┆ [1, 2, 3] │
+│ 9月  ┆ ["员工01", "员工02", "员工03"]  ┆ [24, 59, 71] ┆ [1, 2, 3] │
+└──────┴────────────────────────────────┴──────────────┴───────────┘
+</code></pre>
+<h3 id="step2-1"><a class="header" href="#step2-1">step2</a></h3>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>shape: (12, 4)
+┌──────┬────────┬──────┬──────┐
+│ 日期 ┆ 员工ID ┆ 业绩 ┆ rank │
+│ ---  ┆ ---    ┆ ---  ┆ ---  │
+│ str  ┆ str    ┆ i32  ┆ u32  │
+╞══════╪════════╪══════╪══════╡
+│ 8月  ┆ 员工01 ┆ 83   ┆ 2    │
+│ 8月  ┆ 员工02 ┆ 89   ┆ 3    │
+│ 8月  ┆ 员工03 ┆ 51   ┆ 1    │
+│ 10月 ┆ 员工01 ┆ 86   ┆ 3    │
+│ 10月 ┆ 员工02 ┆ 48   ┆ 2    │
+│ …    ┆ …      ┆ …    ┆ …    │
+│ 11月 ┆ 员工02 ┆ 79   ┆ 2    │
+│ 11月 ┆ 员工03 ┆ 90   ┆ 3    │
+│ 9月  ┆ 员工01 ┆ 24   ┆ 1    │
+│ 9月  ┆ 员工02 ┆ 59   ┆ 2    │
+│ 9月  ┆ 员工03 ┆ 71   ┆ 3    │
+└──────┴────────┴──────┴──────┘
+<span class="boring">}</span></code></pre></pre>
+<h2 id="复杂聚合和自定义函数-1"><a class="header" href="#复杂聚合和自定义函数-1">复杂聚合和自定义函数</a></h2>
+<ul>
+<li>简单聚合：输入单个Series，输出只有一个元素的Series。</li>
+<li>复杂聚合：输入多个Series，输出多行和多列。</li>
+</ul>
+<p>复杂聚合需要自定义函数计算出我们想要的结果。</p>
+<p>在<code>lazy().group_by/agg</code>表达式上下文中，使用col("score").apply_many</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>    use polars::prelude::*;
+    let mut employee_df: DataFrame = df!("Name"=&gt; ["老李", "老李", "老李", "老李", "老张", "老张", "老张", "老张", "老王", "老王", "老王", "老王"],
+    "employee_ID"=&gt; ["员工01", "员工01", "员工01", "员工01", "员工02", "员工02", "员工02", "员工02", "员工03", "员工03", "员工03", "员工03"],
+    "date"=&gt; ["8月", "9月", "10月", "11月", "8月", "9月", "10月", "11月", "8月", "9月", "10月", "11月"],
+    "score"=&gt; [83, 24, 86, 74, 89, 59, 48, 79, 51, 71, 44, 90])?;
+
+        let user_defined_function= |x: &amp; mut[Series]| -&gt; Result&lt;Option&lt;Series&gt;, PolarsError&gt;{
+            let arg0 = &amp;x[0];
+            let arg1 = &amp;x[1];
+            let arg2 = &amp;x[2];
+            // 完成分析，我们获得了以下结果
+            let res_field1 = Series::new("rank".into(), vec!["field1,row[10]","row[11]","row[12]"]);
+            let res_field2 = Series::new("rank2".into(), vec!["field2,row[20]","row[21]","row[22]"]);
+            let res_field3 = Series::new("rank3".into(), vec![1,2,3]);
+            //For each group, 我们可以返回复杂的二维结构 
+            //而在简单聚合里，结果只能是单个值.
+           //复杂的二维结构必须被StructChunked包裹起来，这样就能保存入单个Series
+           //对于每个组，我们必须保持StructChunked 的"Schema"保持不变,
+          //"Schema" 指的是StructChunked 字段的顺序、名称、数据类型。
+            let res=StructChunked::from_series("res".into(), &amp;[res_field1,res_field2,res_field3])?.into_series();
+            Ok(Some(res))
+        };
+
+        // let sc = DataType::Struct(vec![
+            // Field::new("f1".into(), DataType::String),
+            // Field::new("f2".into(), DataType::String),
+            // Field::new("f3".into(), DataType::Int32 )
+        // ]);
+
+    //In the API文档, `GetOutput::from_type(DataType::Boolean)` 应该是 `GetOutput::from_type(sc)`. 但事实上任意的`GetOutput`都能工作.
+    let output_type = GetOutput::from_type(DataType::Boolean);
+    let res = employee_df.lazy().group_by([col("date")]).agg(
+    [
+    //col("date"),
+    col("score").apply_many(user_defined_function, &amp;[col("Name"),col("employee_ID"),col("score")], output_type)
+    ]
+    ).collect()?;
+    // expolde,unnest 用于解包StructChunked
+    println!("{}",res.explode(["score"])?.unnest(["score"])?);
+<span class="boring">}</span></code></pre></pre>
+<p>Output:</p>
+<pre><code class="language-bash">        shape: (12, 4)
+    ┌──────┬────────────────┬────────────────┬───────┐
+    │ date ┆ rank           ┆ rank2          ┆ rank3 │
+    │ ---  ┆ ---            ┆ ---            ┆ ---   │
+    │ str  ┆ str            ┆ str            ┆ i32   │
+    ╞══════╪════════════════╪════════════════╪═══════╡
+    │ 10月 ┆ field1,row[10] ┆ field2,row[20] ┆ 1     │
+    │ 10月 ┆ row[11]        ┆ row[21]        ┆ 2     │
+    │ 10月 ┆ row[12]        ┆ row[22]        ┆ 3     │
+    │ 8月  ┆ field1,row[10] ┆ field2,row[20] ┆ 1     │
+    │ 8月  ┆ row[11]        ┆ row[21]        ┆ 2     │
+    │ …    ┆ …              ┆ …              ┆ …     │
+    │ 11月 ┆ row[11]        ┆ row[21]        ┆ 2     │
+    │ 11月 ┆ row[12]        ┆ row[22]        ┆ 3     │
+    │ 9月  ┆ field1,row[10] ┆ field2,row[20] ┆ 1     │
+    │ 9月  ┆ row[11]        ┆ row[21]        ┆ 2     │
+    │ 9月  ┆ row[12]        ┆ row[22]        ┆ 3     │
+    └──────┴────────────────┴────────────────┴───────┘
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="lazyframe-api"><a class="header" href="#lazyframe-api">Lazyframe API</a></h1>
+<p>Self=Lazyframe</p>
+<div class="table-wrapper"><table><thead><tr><th>API</th><th>含义</th></tr></thead><tbody>
+<tr><td>.to_dot(&amp;self, optimized: bool)</td><td>返回执行计划的DOT语言<sup class="footnote-reference"><a href="#DOT语言">1</a></sup>表示 。</td></tr>
+<tr><td>.explain(&amp;self, optimized: bool)</td><td>返回string描述查询计划</td></tr>
+<tr><td>.sort(self, by,sort_options) -&gt; LazyFrame</td><td>排序<a href="Rust-Polars-API-tutorial/zh_cn/Lazyframe%E6%93%8D%E4%BD%9C-Lazyframe-API.html#sort">代码示例</a></td></tr>
+<tr><td>sort_by_exprs(self,by_exprs: E,sort_options)</td><td>根据表达式排序，这些表达式会在排序前计算,<a href="Rust-Polars-API-tutorial/zh_cn/Lazyframe%E6%93%8D%E4%BD%9C-Lazyframe-API.html#sort_by_exprs">代码示例</a></td></tr>
+<tr><td>reverse(self) -&gt; LazyFrame</td><td>行逆序</td></tr>
+<tr><td>rename(self, existing: I, new: J)</td><td>重命名字段；existing 和 new 是相同长度的可迭代对象，包含 old 和相应的 new 列名。重命名同时对所有现有列进行，而不是迭代进行。调用 rename 时，existing 中的所有列必须已存在于 LazyFrame 中。<br><code>let res=lf.rename(["姓名","员工ID","值"],["name","ID","value"]).collect()?;</code></td></tr>
+<tr><td>drop (self, columns: I)</td><td>强行删除指定列。<br><code>let res=lf.drop (["姓名","员工ID"]).collect()?;</code></td></tr>
+<tr><td>drop_no_validate(self, columns: I)</td><td>告诉执行计划哪些列可以删除，执行计划没有使用的列会被删除。</td></tr>
+<tr><td>collect(self)</td><td>执行所有操作，把结果搜集到dataframe</td></tr>
+<tr><td>profile(self)</td><td>对lazyframe做性能分析</td></tr>
+<tr><td>sink_csv( self, path, CsvWriterOptions)</td><td>将结果流式写入csv文件，这适用于数据量非常大不便于写入内存时。</td></tr>
+<tr><td>filter(self, predicate: E)</td><td>predicate为某个返回bool数组的表达式，值为false的行将被丢弃</td></tr>
+<tr><td>slice(self, offset: i64, len: u32)</td><td>返回lazyframe，其中包含切片指定的行,offset为负数表示从末尾开始计数。lf.slice(-5,3) 表示从倒数第5个元素开始连续选择3个元素。</td></tr>
+<tr><td>first(self)</td><td>第一行，等价于lf.slice(0,1)</td></tr>
+<tr><td>last(self)</td><td>最后一行，等价于lf.slice(-1,1)</td></tr>
+<tr><td>tail(self,n:u32)</td><td>最后n行，等价于self.slice(-(n as i64), n)</td></tr>
+<tr><td>limit(self,n:u32)</td><td>前几行，self.slice(0, n)</td></tr>
+<tr><td>select(self,exprs:E)</td><td>返回表达式指定字段。参见表达式-列选择page:13</td></tr>
+<tr><td>group_by(self,by:E)</td><td>根据表达式指定的列，分组。group_by和agg函数联用。由于group算法的内部机制问题，经过group_by操作可能导致行顺序发生改变。</td></tr>
+<tr><td>group_by_stable(self,by:E)</td><td>类似group_by，但是保留原有行顺序。</td></tr>
+<tr><td>cross_join(self, other, suffix:)</td><td>笛卡尔联接，见page13脚注3</td></tr>
+<tr><td>left_join( self,other，left_on:E,right_on: E)</td><td>self和other完成left_join,分别用left_on和right_on指定的字段作为联接键。<br><code>lf.left_join(other, col("foo"), col("bar").cast(DataType::String))</code></td></tr>
+<tr><td>inner_join( self,other，left_on:E,right_on: E)</td><td>self和other完成inner_join,分别用left_on和right_on指定的字段作为联接键。</td></tr>
+<tr><td>full_join( self,other，left_on:E,right_on: E)</td><td>self和other完成left_join,分别用left_on和right_on指定的字段作为联接键。</td></tr>
+<tr><td>with_columns(self, exprs: E)</td><td>新增或删除列。</td></tr>
+<tr><td>explode (self, columns: E)</td><td>对columns指定的列扩展list。</td></tr>
+<tr><td>null_count()</td><td>返回lazyframe，其中每个字段包含对应字段的null计数。</td></tr>
+<tr><td>unique (self,  subset, keep_strategy)</td><td>排除重复行，不能保证原行顺序</td></tr>
+<tr><td>unique_stable (self,  subset, keep_strategy)</td><td>类似unique，但能保证原行顺序<br><code>let mut df2=lf.unique_stable(Some(&amp;["Element".into(),"id".into()]), uniqueKeepStrategy::First).collect()?;</code></td></tr>
+<tr><td>drop_nulls(self, subset: Option&lt;Vec&lt;Expr&gt;&gt;)</td><td>删除选择字段中存在null 的行。如果subset为None那么选择所有字段。</td></tr>
+<tr><td>with_row_index(self, name: S, offset)</td><td>在offset处添加名为name的行索引字段。</td></tr>
+</tbody></table>
+</div>
+<h2 id="代码参考"><a class="header" href="#代码参考">代码参考</a></h2>
+<h3 id="sort_by_exprs"><a class="header" href="#sort_by_exprs">sort_by_exprs</a></h3>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>//本段代码根据姓名和"地址"的长度排序
+let mut sort_options= SortMultipleOptions::default()    
+    .with_order_descending_multi([false,false])	//是否逆序
+    .with_multithreaded(false)	//是否启用多线程，默认为true
+    .with_nulls_last(true);	//Null放在末尾，默认为false；
+lf.sort_by_exprs([col("姓名"),col("地址").str().len_chars()],sort_options)`
+.collect()?;
+<span class="boring">}</span></code></pre></pre>
+<h3 id="sort"><a class="header" href="#sort">sort</a></h3>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let mut sort_options= SortMultipleOptions::default()
+    .with_order_descending_multi([true,false])	//是否逆序
+    .with_multithreaded(false)	//是否启用多线程，默认为true
+    .with_nulls_last(true);	//Null放在末尾，默认为false
+lf.sort(["col1","col2"],sort_options)
+<span class="boring">}</span></code></pre></pre>
+<div class="footnote-definition" id="DOT语言"><sup class="footnote-definition-label">1</sup>
+<p>DOT语言是一种用于描述图形的文本格式，通常用于表示图的结构。它是Graphviz工具的一部分，广泛应用于可视化图形数据。在Polars中，获取逻辑计划的DOT语言表示意味着将查询的逻辑结构转换为DOT格式，这样可以使用Graphviz等工具可视化查询执行计划。这种可视化帮助开发者理解查询的执行过程及其优化。</p>
+</div>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="代码参考-1"><a class="header" href="#代码参考-1">代码参考</a></h1>
+<p>本节提供一些函数功能的示范解释函数的用处。或实现某些功能。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="agg_groups示例"><a class="header" href="#agg_groups示例">agg_groups示例</a></h1>
+<p>agg_groups将组内的行索引打包进list中。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use polars::prelude::*;
+let df = df![
+    "A" =&gt; ["foo", "foo", "foo", "bar", "bar", "bar"],
+    "B" =&gt; ["one", "one", "two", "two", "one", "one"]]?;
+let imploded = df.lazy().group_by([cols(["A","B"])])
+.agg([col("A").agg_groups().alias("agg_groups")]).collect()?; 
+//    ^^^^^^^ agg_groups只需要返回组内元素索引。所以列值无关，任意列都可以。
+println!("{:?}",imploded);
+<span class="boring">}</span></code></pre></pre>
+<p>Output</p>
+<pre><code class="language-bash">shape: (4, 3)
+┌─────┬─────┬────────────┐
+│ A   ┆ B   ┆ agg_groups │
+│ --- ┆ --- ┆ ---        │
+│ str ┆ str ┆ list[u32]  │
+╞═════╪═════╪════════════╡
+│ bar ┆ two ┆ [3]        │
+│ bar ┆ one ┆ [4, 5]     │
+│ foo ┆ one ┆ [0, 1]     │
+│ foo ┆ two ┆ [2]        │
+└─────┴─────┴────────────┘
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="map示例"><a class="header" href="#map示例">map示例</a></h1>
+<p>map将自定义函数应用于每一列，注意map不考虑组别。如果需要考虑组别应该使用apply，见<a href="Rust-Polars-API-tutorial/zh_cn/Lazyframe%E6%93%8D%E4%BD%9C-%E5%88%86%E7%BB%84%E5%92%8C%E8%81%9A%E5%90%88.html">分组和聚合</a>。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let df = df![
+    "C" =&gt; [11, 13, 12, 10, 15, 14],
+    "A" =&gt; [21, 23, 22, 20, 25, 24],
+    "B" =&gt; [31, 33, 32, 30, 35, 34],
+]?;
+let a= SpecialEq::&lt;Arc::&lt;dyn FunctionOutputField&gt;&gt;::from_type(DataType::Int32);
+let f=|x|{Ok(Some(x+1))};
+//由于rust是静态编译，因此返回值类型必须编译时可知。map函数的第二个参数用来标记返回值类型。
+let imploded = df.lazy().select([col("*").map(f,a).name().prefix("map_")]).collect();
+<span class="boring">}</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="over示例"><a class="header" href="#over示例">over示例</a></h1>
+<p>over在表达式中指定分组列，这使得你不需要在运算前应用group_by。表达式在组内应用,聚合函数返回值会为组内每个元素出现一次。over的效果相当于group_by+聚合+join</p>
+<pre><pre class="playground"><code class="language-rust">use polars::prelude::*;
+fn main() -&gt;Result&lt;(), PolarsError&gt; {
+let df = df![
+"类别" =&gt; ["开发","开发","开发","开发","开发","实习","实习","销售","销售","销售"],
+"员工ID" =&gt; [11,7,9,8,10,5,2,3,1,4],
+"薪水" =&gt; [5200,4200,4500,6000,5200,3500,3900,4800,5000,4800],
+]?;
+//我们有一份员工薪水列表，我们想了解各个岗位员工薪水的排位情况。
+let imploded = df.lazy()
+    .select([
+        col("*"),
+        col("薪水").mean().alias("平均薪水").over([col("类别")]),
+        col("薪水").rank(RankOptions::default(),None).over([col("类别")]).alias("薪水rank over类别"),
+        col("薪水").rank(RankOptions::default(),None).alias("薪水rank")
+    ]);
+</code></pre></pre>
+<p>Output</p>
+<pre><code class="language-bash">shape: (10, 6)
+┌──────┬────────┬──────┬─────────────┬───────────────────┬──────────┐
+│ 类别 ┆ 员工ID ┆ 薪水 ┆ 平均薪水    ┆ 薪水rank over类别 ┆ 薪水rank │
+│ ---  ┆ ---    ┆ ---  ┆ ---         ┆ ---               ┆ ---      │
+│ str  ┆ i32    ┆ i32  ┆ f64         ┆ u32               ┆ u32      │
+╞══════╪════════╪══════╪═════════════╪═══════════════════╪══════════╡
+│ 开发 ┆ 11     ┆ 5200 ┆ 5020.0      ┆ 3                 ┆ 7        │
+│ 开发 ┆ 7      ┆ 4200 ┆ 5020.0      ┆ 1                 ┆ 3        │
+│ 开发 ┆ 9      ┆ 4500 ┆ 5020.0      ┆ 2                 ┆ 4        │
+│ 开发 ┆ 8      ┆ 6000 ┆ 5020.0      ┆ 4                 ┆ 8        │
+│ 开发 ┆ 10     ┆ 5200 ┆ 5020.0      ┆ 3                 ┆ 7        │
+│ 实习 ┆ 5      ┆ 3500 ┆ 3700.0      ┆ 1                 ┆ 1        │
+│ 实习 ┆ 2      ┆ 3900 ┆ 3700.0      ┆ 2                 ┆ 2        │
+│ 销售 ┆ 3      ┆ 4800 ┆ 4866.666667 ┆ 1                 ┆ 5        │
+│ 销售 ┆ 1      ┆ 5000 ┆ 4866.666667 ┆ 2                 ┆ 6        │
+│ 销售 ┆ 4      ┆ 4800 ┆ 4866.666667 ┆ 1                 ┆ 5        │
+└──────┴────────┴──────┴─────────────┴───────────────────┴──────────┘
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="英文版-0"><a class="header" href="#英文版-0">英文版 0%</a></h1>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+
+        <script>
+        window.addEventListener('load', function() {
+            MathJax.Hub.Register.StartupHook('End', function() {
+                window.setTimeout(window.print, 100);
+            });
+        });
+        </script>
+
+    </div>
+    </body>
+</html>
