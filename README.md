@@ -1,6 +1,7 @@
 # Polars Rust API tutorial
 
-For Polars 0.43.1 作者：张德龙 zdlldine@gmail.com
+For Polars 0.43.1 作者：张德龙 zdlldine@gmail.com 2024-10-7
+Creative Commons 许可证
 
 本项目为学习Polars Rust API时所做的笔记。整理成book，供大家学习。本文文档解释了绝大多数的API，你可以通过本文档的指引完成绝大部分事务。
 
