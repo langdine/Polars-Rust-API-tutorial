@@ -1,0 +1,3 @@
+# Lazyframe
+
+和Dataframe类似，Lazyframe代表一个即将成为Dataframe的抽象，Lazyframe中记录了数据来源，数据操作，数据的流向（生成Dataframe，或通过sink_csv写入磁盘）。lazyframe是并行的，而且是数据流，这对处理巨大数据集非常有用，巨大数据集可能无法完全载入内存，lazyframe能显著降低驻留内存。

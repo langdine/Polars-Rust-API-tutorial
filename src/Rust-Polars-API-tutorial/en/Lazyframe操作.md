@@ -1,0 +1,3 @@
+# LazyFrame
+
+Similar to a DataFrame, a LazyFrame represents an abstraction of a DataFrame that is yet to be realized. A LazyFrame records the data source, data operations, and the data flow (whether it will generate a DataFrame or be written to disk via `sink_csv`). LazyFrames are parallel and operate in a streaming manner, which is particularly useful for handling large datasets that may not fit entirely in memory. LazyFrames can significantly reduce memory residency.
