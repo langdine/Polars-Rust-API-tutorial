@@ -179,18 +179,19 @@
                         <h1 id="polars-rust-api-tutorial"><a class="header" href="#polars-rust-api-tutorial">Polars Rust API tutorial</a></h1>
 <p>For Polars 0.43.1
 作者：张德龙 zdlldine@gmail.com</p>
-<p>本项目为学习Polars Rust API时所做的笔记。整理成book，供大家学习。本文文档解释了绝大多数的API，你可以通过本文档的指引完成绝大部分事务。</p>
+<p>本项目为学习Polars Rust API时所做的笔记。整理成book，供大家学习。本文文档解释了绝大多数的API，你可以通过本文档的指引完成绝大部分事务。
+本书采用Creative Commons署名-非商业性使用许可证（CC BY-NC 4.0）。你可以非商业性地共享和改编本书，需署名原作者。</p>
 <ul>
 <li><a href="Rust-Polars-API-tutorial/./zh_cn/main.html">中文版 100%</a></li>
 </ul>
-<p>This project is a note taken while learning the Polars Rust API. Organize it into a book for everyone to learn.This document explains the vast majority of the APIs, and you can accomplish most tasks by following the guidance provided in this document.</p>
+<p>This project is a note taken while learning the Polars Rust API. Organize it into a book for everyone to learn.This document explains the vast majority of the APIs, and you can accomplish most tasks by following the guidance provided in this document. This work is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0). You are free to share and adapt this work non-commercially, as long as you provide appropriate credit to the original author.</p>
 <ul>
 <li><a href="Rust-Polars-API-tutorial/./en/main.html">English 100%</a></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="polars-rust-api-tutorial-1"><a class="header" href="#polars-rust-api-tutorial-1">Polars Rust API Tutorial</a></h1>
 <p>For Polars 0.43.1</p>
-<p>Authors：Zhang Delong <a href="mailto:Rust-Polars-API-tutorial/en/zdlldine@gmail.com">zdlldine@gmail.com</a></p>
-<p>2024-10-4</p>
+<p>Authors：Zhang Delong <a href="mailto:Rust-Polars-API-tutorial/en/zdlldine@gmail.com">zdlldine@gmail.com</a> 2024-10-7</p>
+<p>This work is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0). You are free to share and adapt this work non-commercially, as long as you provide appropriate credit to the original author.</p>
 <p>This project is a note taken while learning the Polars Rust API. Organize it into a book for everyone to learn.</p>
 <p>Why use Polars Rust API?
 To give your Rust program high performance data processing capabilities on its own. Without the need to embed a Python environment for your program.</p>
@@ -1089,7 +1090,7 @@ left.full_join(right, ["join_column_left"], ["join_column_right"])
 let mut employee_info = df!{
     "Name" =&gt; ["Lao Li", "Lao Zhang", "Lao Wang"],
     "employee_ID" =&gt; ["Employee01", "Employee02", "Employee03"],
-    "email" =&gt; ["LaoLi@126.com","LaoZhang@gmail.com","LaoWang@hotmail.com"]
+    "email" =&gt; ["zdl361@126.com","LaoZhang@gmail.com","LaoWang@hotmail.com"]
     }?;
 
 let res = employee_score.left_join(&amp;employee_info, ["employee_ID"], ["employee_ID"])?;
@@ -1120,7 +1121,7 @@ employee_info:shape: (3, 3)
 │ ---       ┆ ---         ┆ ---                 │
 │ str       ┆ str         ┆ str                 │
 ╞═══════════╪═════════════╪═════════════════════╡
-│ Lao Li    ┆ Employee01  ┆ LaoLi@126.com       │
+│ Lao Li    ┆ Employee01  ┆ zdl361@126.com      │
 │ Lao Zhang ┆ Employee02  ┆ LaoZhang@gmail.com  │
 │ Lao Wang  ┆ Employee03  ┆ LaoWang@hotmail.com │
 └───────────┴─────────────┴─────────────────────┘
@@ -1130,10 +1131,10 @@ after join:shape: (12, 5)
 │ ---         ┆ ---       ┆ ---   ┆ ---       ┆ ---                 │
 │ str         ┆ str       ┆ i32   ┆ str       ┆ str                 │
 ╞═════════════╪═══════════╪═══════╪═══════════╪═════════════════════╡
-│ Employee01  ┆ August    ┆ 83    ┆ Lao Li    ┆ LaoLi@126.com       │
-│ Employee01  ┆ September ┆ 24    ┆ Lao Li    ┆ LaoLi@126.com       │
-│ Employee01  ┆ October   ┆ 86    ┆ Lao Li    ┆ LaoLi@126.com       │
-│ Employee01  ┆ November  ┆ 74    ┆ Lao Li    ┆ LaoLi@126.com       │
+│ Employee01  ┆ August    ┆ 83    ┆ Lao Li    ┆ zdl361@126.com      │
+│ Employee01  ┆ September ┆ 24    ┆ Lao Li    ┆ zdl361@126.com      │
+│ Employee01  ┆ October   ┆ 86    ┆ Lao Li    ┆ zdl361@126.com      │
+│ Employee01  ┆ November  ┆ 74    ┆ Lao Li    ┆ zdl361@126.com      │
 │ Employee02  ┆ August    ┆ 89    ┆ Lao Zhang ┆ LaoZhang@gmail.com  │
 │ …           ┆ …         ┆ …     ┆ …         ┆ …                   │
 │ Employee02  ┆ November  ┆ 79    ┆ Lao Zhang ┆ LaoZhang@gmail.com  │
@@ -1189,6 +1190,7 @@ shape: (3, 6)
 │ Lao Li    ┆ Employee01  ┆ 83     ┆ 24        ┆ 86      ┆ 74       │
 │ Lao Zhang ┆ Employee02  ┆ 89     ┆ 59        ┆ 48      ┆ 79       │
 │ Lao Wang  ┆ Employee03  ┆ 51     ┆ 71        ┆ 44      ┆ 90       │
+└───────────┴─────────────┴────────┴───────────┴─────────┴──────────┘
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="dataframe-api"><a class="header" href="#dataframe-api">DataFrame API</a></h1>
 <div class="table-wrapper"><table><thead><tr><th>API</th><th>Description</th></tr></thead><tbody>
@@ -1595,9 +1597,9 @@ println!("{:?}",res);
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>let df_str = df!{"items" =&gt; ["Jada; location:2759 Fairway Drive; Email:Jada;@gmail;.com\nGraceland; location:6 Greenleaf Dr; Email:Graceland@gmail.com",
-"Ives; location:2887 Andell Road; Email:Ives@gmail.com\nMakana; location:1521 Winifred Way; Email:Makana@gmail.com\nNatsuki; location:4416 Golf Course Drive; Email:Natsuki@gmail.com",
+"zdlldine; location:2887 Andell Road; Email:zdlldine@gmail.com\nMakana; location:1521 Winifred Way; Email:Makana@gmail.com\nNatsuki; location:4416 Golf Course Drive; Email:Natsuki@gmail.com",
 "Pope; location:345 Edgewood Avenue; Email:Pope@gmail.com",
-"Oaklynn; location:3017 Cherry Camp Road; Email:Oaklynn@gmail.com",
+"Oaklynn; location:3017 Cherry Camp Road; Email:zdl_361@hotmail.com",
 "Tysheenia; location:1616 Smith Street; Email:Tysheenia@gmail.com\nZenda; location:4416 Golf Course Drive; Email:Zenda@gmail.com"],
 "teamID" =&gt; ["team01","team02","team03","team04","team05"]}?;
 let df_res = df_str.lazy().select([col("teamID"),col("items").str().split(lit("\n"))]).collect()?;
@@ -1611,7 +1613,7 @@ println!("{:?}",&amp;df_res);
 │ str    ┆ list[str]                       │
 ╞════════╪═════════════════════════════════╡
 │ team01 ┆ ["Jada; location:2759 Fairway … │
-│ team02 ┆ ["Ives; location:2887 Andell R… │
+│ team02 ┆ ["zdlldine; location:2887 And … │
 │ team03 ┆ ["Pope; location:345 Edgewood … │
 │ team04 ┆ ["Oaklynn; location:3017 Cherr… │
 │ team05 ┆ ["Tysheenia; location:1616 Smi… │
@@ -1633,7 +1635,7 @@ println!("{:?}",&amp;df_lines);
 ╞════════╪═════════════════════════════════╡
 │ team01 ┆ Jada; location:2759 Fairway Dr… │
 │ team01 ┆ Graceland; location:6 Greenlea… │
-│ team02 ┆ Ives; location:2887 Andell Roa… │
+│ team02 ┆ zdlldine; location:2887 Andell… │
 │ team02 ┆ Makana; location:1521 Winifred… │
 │ team02 ┆ Natsuki; location:4416 Golf Co… │
 │ team03 ┆ Pope; location:345 Edgewood Av… │
@@ -1664,7 +1666,7 @@ shape: (9, 2)
 ╞════════╪═════════════════════════════════╡
 │ team01 ┆ {"Jada"," location:2759 Fairwa… │
 │ team01 ┆ {"Graceland"," location:6 Gree… │
-│ team02 ┆ {"Ives"," location:2887 Andell… │
+│ team02 ┆ {"zdlldine"," location:2887 An… │
 │ team02 ┆ {"Makana"," location:1521 Wini… │
 │ team02 ┆ {"Natsuki"," location:4416 Gol… │
 │ team03 ┆ {"Pope"," location:345 Edgewoo… │
@@ -1690,11 +1692,11 @@ shape: (9, 5)
 ╞════════╪═══════════╪═════════════════════════════════╪════════════════════════════╪═════════╡
 │ team01 ┆ Jada      ┆  location:2759 Fairway Drive    ┆  Email:Jada                ┆ @gmail  │
 │ team01 ┆ Graceland ┆  location:6 Greenleaf Dr        ┆  Email:Graceland@gmail.com ┆ null    │
-│ team02 ┆ Ives      ┆  location:2887 Andell Road      ┆  Email:Ives@gmail.com      ┆ null    │
+│ team02 ┆ zdlldine  ┆  location:2887 Andell Road      ┆  Email:zdlldine@hotmail.com┆ null    │
 │ team02 ┆ Makana    ┆  location:1521 Winifred Way     ┆  Email:Makana@gmail.com    ┆ null    │
 │ team02 ┆ Natsuki   ┆  location:4416 Golf Course Dri… ┆  Email:Natsuki@gmail.com   ┆ null    │
 │ team03 ┆ Pope      ┆  location:345 Edgewood Avenue   ┆  Email:Pope@gmail.com      ┆ null    │
-│ team04 ┆ Oaklynn   ┆  location:3017 Cherry Camp Roa… ┆  Email:Oaklynn@gmail.com   ┆ null    │
+│ team04 ┆ Oaklynn   ┆  location:3017 Cherry Camp Roa… ┆  Email:zdl_361@hotmail.com ┆ null    │
 │ team05 ┆ Tysheenia ┆  location:1616 Smith Street     ┆  Email:Tysheenia@gmail.com ┆ null    │
 │ team05 ┆ Zenda     ┆  location:4416 Golf Course Dri… ┆  Email:Zenda@gmail.com     ┆ null    │
 └────────┴───────────┴─────────────────────────────────┴────────────────────────────┴─────────┘
@@ -1731,11 +1733,11 @@ println!("{:?}",&amp;df_extract);
 ╞════════╪═════════════════════════════════╪═══════════╪════════════════════════╪═════════════════════╡
 │ team01 ┆ Jada; location:2759 Fairway Dr… ┆ Jada      ┆ 2759 Fairway Drive     ┆ Jada;@gmail;.com    │
 │ team01 ┆ Graceland; location:6 Greenlea… ┆ Graceland ┆ 6 Greenleaf Dr         ┆ Graceland@gmail.com │
-│ team02 ┆ Ives; location:2887 Andell Roa… ┆ Ives      ┆ 2887 Andell Road       ┆ Ives@gmail.com      │
+│ team02 ┆ zdlldine; location:2887 Andell… ┆ Ives      ┆ 2887 Andell Road       ┆ zdlldine@gmail.com  │
 │ team02 ┆ Makana; location:1521 Winifred… ┆ Makana    ┆ 1521 Winifred Way      ┆ Makana@gmail.com    │
 │ team02 ┆ Natsuki; location:4416 Golf Co… ┆ Natsuki   ┆ 4416 Golf Course Drive ┆ Natsuki@gmail.com   │
 │ team03 ┆ Pope; location:345 Edgewood Av… ┆ Pope      ┆ 345 Edgewood Avenue    ┆ Pope@gmail.com      │
-│ team04 ┆ Oaklynn; location:3017 Cherry … ┆ Oaklynn   ┆ 3017 Cherry Camp Road  ┆ Oaklynn@gmail.com   │
+│ team04 ┆ Oaklynn; location:3017 Cherry … ┆ Oaklynn   ┆ 3017 Cherry Camp Road  ┆ zdl_361@hotmail.com │
 │ team05 ┆ Tysheenia; location:1616 Smith… ┆ Tysheenia ┆ 1616 Smith Street      ┆ Tysheenia@gmail.com │
 │ team05 ┆ Zenda; location:4416 Golf Cour… ┆ Zenda     ┆ 4416 Golf Course Drive ┆ Zenda@gmail.com     │
 └────────┴─────────────────────────────────┴───────────┴────────────────────────┴─────────────────────┘
@@ -2099,8 +2101,8 @@ fn main() -&gt; Result&lt;(), PolarsError&gt; {
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="polars-rust-api-教程"><a class="header" href="#polars-rust-api-教程">Polars Rust API 教程</a></h1>
 <p>For Polars 0.43.1</p>
-<p>作者：张德龙 <a href="mailto:Rust-Polars-API-tutorial/zh_cn/zdlldine@gmail.com">zdlldine@gmail.com</a></p>
-<p>2024-10-4</p>
+<p>作者：张德龙 <a href="mailto:Rust-Polars-API-tutorial/zh_cn/zdlldine@gmail.com">zdlldine@gmail.com</a> 2024-10-7
+本书采用Creative Commons署名-非商业性使用许可证（CC BY-NC 4.0）。你可以非商业性地共享和改编本书，需署名原作者。</p>
 <p>本项目为学习Polars Rust API时所做的笔记。整理成book，供大家学习。
 为什么使用Polars Rust API？
 为了让你的Rust程序自身具备高性能的数据处理能力。而不需要给你的程序嵌入Python环境。</p>
@@ -2874,26 +2876,50 @@ F为自定义函数，要求F满足 <code>|x: DataFrame| -&gt; Result&lt;DataFra
 以分组后的数据封装进Dataframe，这样可以获得所有字段，返回Dataframe，每一组可以返回多行多列，但要求不同组返回的Dataframe的字段顺序、名称、类型一致。在返回的Dataframe中需要自己维护组别字段。</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>    let mut employee_df: DataFrame = df!("Name"=&gt; ["老李", "老李", "老李", "老李", "老张", "老张", "老张", "老张", "老王", "老王", "老王", "老王"],
-    "employee_ID"=&gt; ["员工01", "员工01", "员工01", "员工01", "员工02", "员工02", "员工02", "员工02", "员工03", "员工03", "员工03", "员工03"],
-    "date"=&gt; ["8月", "9月", "10月", "11月", "8月", "9月", "10月", "11月", "8月", "9月", "10月", "11月"],
-    "score"=&gt; [83, 24, 86, 74, 89, 59, 48, 79, 51, 71, 44, 90])?;
-    let f = |x: DataFrame| -&gt; Result&lt;DataFrame, PolarsError&gt; {
-        let col1: &amp;Series = x.column("Name")?;
-        let col2: &amp;Series = x.column("employee_ID")?;
-        let col3: &amp;Series = x.column("score")?;
-        let group_id = x.column("date")?.str()?.get(0).unwrap();
-        // do something; We get those results below;
-        let group_field = Series::new("group".into(), vec![group_id, group_id, group_id]);
-        let res_field1 = Series::new("field1".into(), vec!["a1,1", "a2,1", "a3,1"]);
-        let res_field2 = Series::new("field2".into(), vec!["a1,2", "a2,2", "a3,2"]);
-        let res_field3 = Series::new("field3".into(), vec!["a1,3", "a2,3", "a3,3"]);
-        let result = DataFrame::new(vec![group_field, res_field1, res_field2, res_field3])?;
-        return Ok(result);
-    };
-    let res = employee_df.group_by(["date"])?.apply(f)?; //一次聚合返回了3行3列
-    println!("{}", res);
+</span>let mut employee_df: DataFrame = df!(
+    "Name" =&gt; ["Lao Li", "Lao Li", "Lao Li", "Lao Li", "Lao Zhang", "Lao Zhang", "Lao Zhang", "Lao Zhang", "Lao Wang", "Lao Wang", "Lao Wang", "Lao Wang"],
+    "employee_ID" =&gt; ["Employee01", "Employee01", "Employee01", "Employee01", "Employee02", "Employee02", "Employee02", "Employee02", "Employee03", "Employee03", "Employee03", "Employee03"],
+    "date" =&gt; ["August", "September", "October", "November", "August", "September", "October", "November", "August", "September", "October", "November"],
+    "score" =&gt; [83, 24, 86, 74, 89, 59, 48, 79, 51, 71, 44, 90]
+)?;
+
+let f = |x: DataFrame| -&gt; Result&lt;DataFrame, PolarsError&gt; {
+    let col1: &amp;Series = x.column("Name")?;
+    let col2: &amp;Series = x.column("employee_ID")?;
+    let col3: &amp;Series = x.column("score")?;
+    let group_id = x.column("date")?.str()?.get(0).unwrap();
+    // do something; We get those results below;
+    let group_field = Series::new("group".into(), vec![group_id, group_id, group_id]);
+    let res_field1 = Series::new("field1".into(), vec!["a1,1", "a2,1", "a3,1"]);
+    let res_field2 = Series::new("field2".into(), vec!["a1,2", "a2,2", "a3,2"]);
+    let res_field3 = Series::new("field3".into(), vec!["a1,3", "a2,3", "a3,3"]);
+    let result = DataFrame::new(vec![group_field, res_field1, res_field2, res_field3])?;
+    return Ok(result);
+};
+
+let res = employee_df.group_by(["date"])?.apply(f)?;//一次聚合返回了3行3列，要求是对于不同组schema必须一致（字段顺序，名称，类型）
+println!("{}", res);
 <span class="boring">}</span></code></pre></pre>
+<p>Output</p>
+<pre><code class="language-term">shape: (12, 4)
+┌───────────┬────────┬────────┬────────┐
+│ group     ┆ field1 ┆ field2 ┆ field3 │
+│ ---       ┆ ---    ┆ ---    ┆ ---    │
+│ str       ┆ str    ┆ str    ┆ str    │
+╞═══════════╪════════╪════════╪════════╡
+│ August    ┆ a1,1   ┆ a1,2   ┆ a1,3   │
+│ August    ┆ a2,1   ┆ a2,2   ┆ a2,3   │
+│ August    ┆ a3,1   ┆ a3,2   ┆ a3,3   │
+│ November  ┆ a1,1   ┆ a1,2   ┆ a1,3   │
+│ November  ┆ a2,1   ┆ a2,2   ┆ a2,3   │
+│ …         ┆ …      ┆ …      ┆ …      │
+│ September ┆ a2,1   ┆ a2,2   ┆ a2,3   │
+│ September ┆ a3,1   ┆ a3,2   ┆ a3,3   │
+│ October   ┆ a1,1   ┆ a1,2   ┆ a1,3   │
+│ October   ┆ a2,1   ┆ a2,2   ┆ a2,3   │
+│ October   ┆ a3,1   ┆ a3,2   ┆ a3,3   │
+└───────────┴────────┴────────┴────────┘
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="join操作"><a class="header" href="#join操作">Join操作</a></h1>
 <h2 id="什么是join联接"><a class="header" href="#什么是join联接">什么是join联接</a></h2>
 <p>数据处理中经常出现以下需求：一张表保存了大量用户id和用户姓名、年龄、手机号、购物地址等等用户信息，另一张表保存了用户id和待快递商品，商品价格等等交易信息。如何能根据id将两张表的数据整合到一起。</p>
@@ -2938,7 +2964,7 @@ left.full_join(right, ["join_column_left"], ["join_column_right"])
 let mut employee_info = df!{
     "Name" =&gt; ["Lao Li", "Lao Zhang", "Lao Wang"],
     "employee_ID" =&gt; ["Employee01", "Employee02", "Employee03"],
-    "email" =&gt; ["LaoLi@126.com","LaoZhang@gmail.com","LaoWang@hotmail.com"]
+    "email" =&gt; ["zdl361@126.com","LaoZhang@gmail.com","LaoWang@hotmail.com"]
     }?;
 
 let res = employee_score.left_join(&amp;employee_info, ["employee_ID"], ["employee_ID"])?;
@@ -2969,7 +2995,7 @@ employee_info:shape: (3, 3)
 │ ---       ┆ ---         ┆ ---                 │
 │ str       ┆ str         ┆ str                 │
 ╞═══════════╪═════════════╪═════════════════════╡
-│ Lao Li    ┆ Employee01  ┆ LaoLi@126.com       │
+│ Lao Li    ┆ Employee01  ┆ zdl361@126.com      │
 │ Lao Zhang ┆ Employee02  ┆ LaoZhang@gmail.com  │
 │ Lao Wang  ┆ Employee03  ┆ LaoWang@hotmail.com │
 └───────────┴─────────────┴─────────────────────┘
@@ -2979,10 +3005,10 @@ after join:shape: (12, 5)
 │ ---         ┆ ---       ┆ ---   ┆ ---       ┆ ---                 │
 │ str         ┆ str       ┆ i32   ┆ str       ┆ str                 │
 ╞═════════════╪═══════════╪═══════╪═══════════╪═════════════════════╡
-│ Employee01  ┆ August    ┆ 83    ┆ Lao Li    ┆ LaoLi@126.com       │
-│ Employee01  ┆ September ┆ 24    ┆ Lao Li    ┆ LaoLi@126.com       │
-│ Employee01  ┆ October   ┆ 86    ┆ Lao Li    ┆ LaoLi@126.com       │
-│ Employee01  ┆ November  ┆ 74    ┆ Lao Li    ┆ LaoLi@126.com       │
+│ Employee01  ┆ August    ┆ 83    ┆ Lao Li    ┆ zdl361@126.com      │
+│ Employee01  ┆ September ┆ 24    ┆ Lao Li    ┆ zdl361@126.com      │
+│ Employee01  ┆ October   ┆ 86    ┆ Lao Li    ┆ zdl361@126.com      │
+│ Employee01  ┆ November  ┆ 74    ┆ Lao Li    ┆ zdl361@126.com      │
 │ Employee02  ┆ August    ┆ 89    ┆ Lao Zhang ┆ LaoZhang@gmail.com  │
 │ …           ┆ …         ┆ …     ┆ …         ┆ …                   │
 │ Employee02  ┆ November  ┆ 79    ┆ Lao Zhang ┆ LaoZhang@gmail.com  │
@@ -2998,12 +3024,50 @@ after join:shape: (12, 5)
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>//cargo.toml polars features中添加"pivot"。
+let mut employee_df: DataFrame = df!(
+        "Name" =&gt; ["Lao Li", "Lao Li", "Lao Li", "Lao Li", "Lao Zhang", "Lao Zhang", "Lao Zhang", "Lao Zhang", "Lao Wang", "Lao Wang", "Lao Wang", "Lao Wang"],
+        "employee_ID" =&gt; ["Employee01", "Employee01", "Employee01", "Employee01", "Employee02", "Employee02", "Employee02", "Employee02", "Employee03", "Employee03", "Employee03", "Employee03"],
+        "date" =&gt; ["August", "September", "October", "November", "August", "September", "October", "November", "August", "September", "October", "November"],
+        "score" =&gt; [83, 24, 86, 74, 89, 59, 48, 79, 51, 71, 44, 90]
+    )?;
+    
 use polars_lazy::frame::pivot::pivot;
-    let out = pivot(&amp;df1, ["日期"], Some(["姓名","员工ID"]), Some(["值"]), false, None, None)?;
-    println!("{}\n{}",df1,out);
+let out = pivot(&amp;employee_df, ["date"], Some(["Name", "employee_ID"]), Some(["score"]), false, None, None)?;
+println!("long format:\n{}\nwide format:\n{}", employee_df, out);
 
 <span class="boring">}</span></code></pre></pre>
-<p><img src="Rust-Polars-API-tutorial/zh_cn/res/Pivots.png" alt="Pivots" /></p>
+<p>Output</p>
+<pre><code class="language-term">long format:
+shape: (12, 4)
+┌───────────┬─────────────┬───────────┬───────┐
+│ Name      ┆ employee_ID ┆ date      ┆ score │
+│ ---       ┆ ---         ┆ ---       ┆ ---   │
+│ str       ┆ str         ┆ str       ┆ i32   │
+╞═══════════╪═════════════╪═══════════╪═══════╡
+│ Lao Li    ┆ Employee01  ┆ August    ┆ 83    │
+│ Lao Li    ┆ Employee01  ┆ September ┆ 24    │
+│ Lao Li    ┆ Employee01  ┆ October   ┆ 86    │
+│ Lao Li    ┆ Employee01  ┆ November  ┆ 74    │
+│ Lao Zhang ┆ Employee02  ┆ August    ┆ 89    │
+│ …         ┆ …           ┆ …         ┆ …     │
+│ Lao Zhang ┆ Employee02  ┆ November  ┆ 79    │
+│ Lao Wang  ┆ Employee03  ┆ August    ┆ 51    │
+│ Lao Wang  ┆ Employee03  ┆ September ┆ 71    │
+│ Lao Wang  ┆ Employee03  ┆ October   ┆ 44    │
+│ Lao Wang  ┆ Employee03  ┆ November  ┆ 90    │
+└───────────┴─────────────┴───────────┴───────┘
+wide format:
+shape: (3, 6)
+┌───────────┬─────────────┬────────┬───────────┬─────────┬──────────┐
+│ Name      ┆ employee_ID ┆ August ┆ September ┆ October ┆ November │
+│ ---       ┆ ---         ┆ ---    ┆ ---       ┆ ---     ┆ ---      │
+│ str       ┆ str         ┆ i32    ┆ i32       ┆ i32     ┆ i32      │
+╞═══════════╪═════════════╪════════╪═══════════╪═════════╪══════════╡
+│ Lao Li    ┆ Employee01  ┆ 83     ┆ 24        ┆ 86      ┆ 74       │
+│ Lao Zhang ┆ Employee02  ┆ 89     ┆ 59        ┆ 48      ┆ 79       │
+│ Lao Wang  ┆ Employee03  ┆ 51     ┆ 71        ┆ 44      ┆ 90       │
+└───────────┴─────────────┴────────┴───────────┴─────────┴──────────┘
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="dataframe-api-1"><a class="header" href="#dataframe-api-1">Dataframe API</a></h1>
 <div class="table-wrapper"><table><thead><tr><th>API</th><th>含义</th></tr></thead><tbody>
 <tr><td>df.get_column_index(name: &amp;str) -&gt; Option&lt;usize&gt;</td><td>根据name，返回Series对应的索引</td></tr>
@@ -3421,12 +3485,11 @@ println!("{:?}",res);
 <h2 id="字符串分割到多行"><a class="header" href="#字符串分割到多行">字符串分割到多行</a></h2>
 <p>以下dataframe中每个team的成员信息被用字符串储存，我们的第一个任务是将字符串分割到多行，以换行符为分隔符。</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
-</span>
-<span class="boring">fn main() {
+</span><span class="boring">fn main() {
 </span>let df_str = df!{"items" =&gt; ["Jada; location:2759 Fairway Drive; Email:Jada;@gmail;.com\nGraceland; location:6 Greenleaf Dr; Email:Graceland@gmail.com",
-"Ives; location:2887 Andell Road; Email:Ives@gmail.com\nMakana; location:1521 Winifred Way; Email:Makana@gmail.com\nNatsuki; location:4416 Golf Course Drive; Email:Natsuki@gmail.com",
+"zdlldine; location:2887 Andell Road; Email:zdlldine@gmail.com\nMakana; location:1521 Winifred Way; Email:Makana@gmail.com\nNatsuki; location:4416 Golf Course Drive; Email:Natsuki@gmail.com",
 "Pope; location:345 Edgewood Avenue; Email:Pope@gmail.com",
-"Oaklynn; location:3017 Cherry Camp Road; Email:Oaklynn@gmail.com",
+"Oaklynn; location:3017 Cherry Camp Road; Email:zdl_361@hotmail.com",
 "Tysheenia; location:1616 Smith Street; Email:Tysheenia@gmail.com\nZenda; location:4416 Golf Course Drive; Email:Zenda@gmail.com"],
 "teamID" =&gt; ["team01","team02","team03","team04","team05"]}?;
 let df_res = df_str.lazy().select([col("teamID"),col("items").str().split(lit("\n"))]).collect()?;
@@ -3440,7 +3503,7 @@ println!("{:?}",&amp;df_res);
 │ str    ┆ list[str]                       │
 ╞════════╪═════════════════════════════════╡
 │ team01 ┆ ["Jada; location:2759 Fairway … │
-│ team02 ┆ ["Ives; location:2887 Andell R… │
+│ team02 ┆ ["zdlldine; location:2887 And … │
 │ team03 ┆ ["Pope; location:345 Edgewood … │
 │ team04 ┆ ["Oaklynn; location:3017 Cherr… │
 │ team05 ┆ ["Tysheenia; location:1616 Smi… │
@@ -3462,7 +3525,7 @@ println!("{:?}",&amp;df_lines);
 ╞════════╪═════════════════════════════════╡
 │ team01 ┆ Jada; location:2759 Fairway Dr… │
 │ team01 ┆ Graceland; location:6 Greenlea… │
-│ team02 ┆ Ives; location:2887 Andell Roa… │
+│ team02 ┆ zdlldine; location:2887 Andell… │
 │ team02 ┆ Makana; location:1521 Winifred… │
 │ team02 ┆ Natsuki; location:4416 Golf Co… │
 │ team03 ┆ Pope; location:345 Edgewood Av… │
@@ -3484,7 +3547,8 @@ println!("df_structed\n{:?}",&amp;df_structed);
 <span class="boring">}</span></code></pre></pre>
 <p>注意返回的items的类型为struct类型。
 Output</p>
-<pre><code class="language-term">df_structed
+<pre><code class="language-term">
+df_structed
 shape: (9, 2)
 ┌────────┬─────────────────────────────────┐
 │ teamID ┆ items                           │
@@ -3493,7 +3557,7 @@ shape: (9, 2)
 ╞════════╪═════════════════════════════════╡
 │ team01 ┆ {"Jada"," location:2759 Fairwa… │
 │ team01 ┆ {"Graceland"," location:6 Gree… │
-│ team02 ┆ {"Ives"," location:2887 Andell… │
+│ team02 ┆ {"zdlldine"," location:2887 An… │
 │ team02 ┆ {"Makana"," location:1521 Wini… │
 │ team02 ┆ {"Natsuki"," location:4416 Gol… │
 │ team03 ┆ {"Pope"," location:345 Edgewoo… │
@@ -3519,11 +3583,11 @@ shape: (9, 5)
 ╞════════╪═══════════╪═════════════════════════════════╪════════════════════════════╪═════════╡
 │ team01 ┆ Jada      ┆  location:2759 Fairway Drive    ┆  Email:Jada                ┆ @gmail  │
 │ team01 ┆ Graceland ┆  location:6 Greenleaf Dr        ┆  Email:Graceland@gmail.com ┆ null    │
-│ team02 ┆ Ives      ┆  location:2887 Andell Road      ┆  Email:Ives@gmail.com      ┆ null    │
+│ team02 ┆ zdlldine  ┆  location:2887 Andell Road      ┆  Email:zdlldine@hotmail.com┆ null    │
 │ team02 ┆ Makana    ┆  location:1521 Winifred Way     ┆  Email:Makana@gmail.com    ┆ null    │
 │ team02 ┆ Natsuki   ┆  location:4416 Golf Course Dri… ┆  Email:Natsuki@gmail.com   ┆ null    │
 │ team03 ┆ Pope      ┆  location:345 Edgewood Avenue   ┆  Email:Pope@gmail.com      ┆ null    │
-│ team04 ┆ Oaklynn   ┆  location:3017 Cherry Camp Roa… ┆  Email:Oaklynn@gmail.com   ┆ null    │
+│ team04 ┆ Oaklynn   ┆  location:3017 Cherry Camp Roa… ┆  Email:zdl_361@hotmail.com ┆ null    │
 │ team05 ┆ Tysheenia ┆  location:1616 Smith Street     ┆  Email:Tysheenia@gmail.com ┆ null    │
 │ team05 ┆ Zenda     ┆  location:4416 Golf Course Dri… ┆  Email:Zenda@gmail.com     ┆ null    │
 └────────┴───────────┴─────────────────────────────────┴────────────────────────────┴─────────┘
@@ -3564,11 +3628,11 @@ println!("{:?}",&amp;df_extract);
 ╞════════╪═════════════════════════════════╪═══════════╪════════════════════════╪═════════════════════╡
 │ team01 ┆ Jada; location:2759 Fairway Dr… ┆ Jada      ┆ 2759 Fairway Drive     ┆ Jada;@gmail;.com    │
 │ team01 ┆ Graceland; location:6 Greenlea… ┆ Graceland ┆ 6 Greenleaf Dr         ┆ Graceland@gmail.com │
-│ team02 ┆ Ives; location:2887 Andell Roa… ┆ Ives      ┆ 2887 Andell Road       ┆ Ives@gmail.com      │
+│ team02 ┆ zdlldine; location:2887 Andell… ┆ Ives      ┆ 2887 Andell Road       ┆ zdlldine@gmail.com  │
 │ team02 ┆ Makana; location:1521 Winifred… ┆ Makana    ┆ 1521 Winifred Way      ┆ Makana@gmail.com    │
 │ team02 ┆ Natsuki; location:4416 Golf Co… ┆ Natsuki   ┆ 4416 Golf Course Drive ┆ Natsuki@gmail.com   │
 │ team03 ┆ Pope; location:345 Edgewood Av… ┆ Pope      ┆ 345 Edgewood Avenue    ┆ Pope@gmail.com      │
-│ team04 ┆ Oaklynn; location:3017 Cherry … ┆ Oaklynn   ┆ 3017 Cherry Camp Road  ┆ Oaklynn@gmail.com   │
+│ team04 ┆ Oaklynn; location:3017 Cherry … ┆ Oaklynn   ┆ 3017 Cherry Camp Road  ┆ zdl_361@hotmail.com │
 │ team05 ┆ Tysheenia; location:1616 Smith… ┆ Tysheenia ┆ 1616 Smith Street      ┆ Tysheenia@gmail.com │
 │ team05 ┆ Zenda; location:4416 Golf Cour… ┆ Zenda     ┆ 4416 Golf Course Drive ┆ Zenda@gmail.com     │
 └────────┴─────────────────────────────────┴───────────┴────────────────────────┴─────────────────────┘

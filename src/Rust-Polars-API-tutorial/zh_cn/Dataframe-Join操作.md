@@ -50,7 +50,7 @@ let mut employee_score: DataFrame = df!(
 let mut employee_info = df!{
     "Name" => ["Lao Li", "Lao Zhang", "Lao Wang"],
     "employee_ID" => ["Employee01", "Employee02", "Employee03"],
-    "email" => ["LaoLi@126.com","LaoZhang@gmail.com","LaoWang@hotmail.com"]
+    "email" => ["zdl361@126.com","LaoZhang@gmail.com","LaoWang@hotmail.com"]
     }?;
 
 let res = employee_score.left_join(&employee_info, ["employee_ID"], ["employee_ID"])?;
@@ -84,7 +84,7 @@ employee_info:shape: (3, 3)
 │ ---       ┆ ---         ┆ ---                 │
 │ str       ┆ str         ┆ str                 │
 ╞═══════════╪═════════════╪═════════════════════╡
-│ Lao Li    ┆ Employee01  ┆ LaoLi@126.com       │
+│ Lao Li    ┆ Employee01  ┆ zdl361@126.com      │
 │ Lao Zhang ┆ Employee02  ┆ LaoZhang@gmail.com  │
 │ Lao Wang  ┆ Employee03  ┆ LaoWang@hotmail.com │
 └───────────┴─────────────┴─────────────────────┘
@@ -94,10 +94,10 @@ after join:shape: (12, 5)
 │ ---         ┆ ---       ┆ ---   ┆ ---       ┆ ---                 │
 │ str         ┆ str       ┆ i32   ┆ str       ┆ str                 │
 ╞═════════════╪═══════════╪═══════╪═══════════╪═════════════════════╡
-│ Employee01  ┆ August    ┆ 83    ┆ Lao Li    ┆ LaoLi@126.com       │
-│ Employee01  ┆ September ┆ 24    ┆ Lao Li    ┆ LaoLi@126.com       │
-│ Employee01  ┆ October   ┆ 86    ┆ Lao Li    ┆ LaoLi@126.com       │
-│ Employee01  ┆ November  ┆ 74    ┆ Lao Li    ┆ LaoLi@126.com       │
+│ Employee01  ┆ August    ┆ 83    ┆ Lao Li    ┆ zdl361@126.com      │
+│ Employee01  ┆ September ┆ 24    ┆ Lao Li    ┆ zdl361@126.com      │
+│ Employee01  ┆ October   ┆ 86    ┆ Lao Li    ┆ zdl361@126.com      │
+│ Employee01  ┆ November  ┆ 74    ┆ Lao Li    ┆ zdl361@126.com      │
 │ Employee02  ┆ August    ┆ 89    ┆ Lao Zhang ┆ LaoZhang@gmail.com  │
 │ …           ┆ …         ┆ …     ┆ …         ┆ …                   │
 │ Employee02  ┆ November  ┆ 79    ┆ Lao Zhang ┆ LaoZhang@gmail.com  │
